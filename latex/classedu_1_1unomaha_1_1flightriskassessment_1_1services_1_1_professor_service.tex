@@ -1,0 +1,175 @@
+\hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service}{}\doxysection{edu.\+unomaha.\+flightriskassessment.\+services.\+Professor\+Service Class Reference}
+\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service}\index{edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a494ed06838d7f8c2c042e55a69db30fc}{save}} (\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_professor}{Professor}} to\+Save)
+\item 
+Array\+List$<$ \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_professor}{Professor}} $>$ \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a0945dc04b7f28c37a0edf1b28df8b780}{get\+All}} ()
+\item 
+\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_professor}{Professor}} \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a15b1bd7ceb22ebac5760a6b3438dc262}{get\+Professor\+By\+Id}} (int id)
+\item 
+\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_professor}{Professor}} \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a166dd2f7b58ffbbdb612f294b5241625}{get\+Professor\+By\+First\+Name\+Last\+Name}} (String firstname, String lastname)
+\item 
+\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_professor}{Professor}} \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a35ea9a1b373a995adb0bc008a4c26428}{get\+Professor\+By\+Username}} (String username)
+\item 
+void \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a5ceb97ff765083f4883698b7f9abe4ad}{update\+By\+Id}} (int id, \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_professor}{Professor}} to\+Set)
+\item 
+void \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a6dcfb7e73f6138b357c601b6417d3038}{update\+By\+Username}} (String username, \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_professor}{Professor}} to\+Set)
+\item 
+void \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_abce19c373db4baddc84c945d09256caa}{update\+By\+First\+Name\+Last\+Name}} (String firstname, String lastname, \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_professor}{Professor}} to\+Set)
+\item 
+void \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a224b2bd5a174c133541920a373137010}{delete\+By\+Id}} (int id)
+\item 
+void \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a14f0f235b934519fb4fed9c22ded73d5}{delete\+By\+Username}} (String username)
+\item 
+void \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_ac373cc3a90eb81ced3f2c1c803da35ab}{delete\+By\+First\+Name\+Last\+Name}} (String firstname, String lastname)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_ac373cc3a90eb81ced3f2c1c803da35ab}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_ac373cc3a90eb81ced3f2c1c803da35ab}} 
+\index{edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}!deleteByFirstNameLastName@{deleteByFirstNameLastName}}
+\index{deleteByFirstNameLastName@{deleteByFirstNameLastName}!edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}}
+\doxysubsubsection{\texorpdfstring{deleteByFirstNameLastName()}{deleteByFirstNameLastName()}}
+{\footnotesize\ttfamily void edu.\+unomaha.\+flightriskassessment.\+services.\+Professor\+Service.\+delete\+By\+First\+Name\+Last\+Name (\begin{DoxyParamCaption}\item[{String}]{firstname,  }\item[{String}]{lastname }\end{DoxyParamCaption})}
+
+deletes a row by its first and last name 
+\begin{DoxyParams}{Parameters}
+{\em firstname} & -\/ The first name of the row to be deleted \\
+\hline
+{\em lastname} & -\/ The last name of the row to be deleted \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a224b2bd5a174c133541920a373137010}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a224b2bd5a174c133541920a373137010}} 
+\index{edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}!deleteById@{deleteById}}
+\index{deleteById@{deleteById}!edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}}
+\doxysubsubsection{\texorpdfstring{deleteById()}{deleteById()}}
+{\footnotesize\ttfamily void edu.\+unomaha.\+flightriskassessment.\+services.\+Professor\+Service.\+delete\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+Deletes a row by its ID 
+\begin{DoxyParams}{Parameters}
+{\em id} & -\/ the id of the row to be deleted \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a14f0f235b934519fb4fed9c22ded73d5}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a14f0f235b934519fb4fed9c22ded73d5}} 
+\index{edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}!deleteByUsername@{deleteByUsername}}
+\index{deleteByUsername@{deleteByUsername}!edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}}
+\doxysubsubsection{\texorpdfstring{deleteByUsername()}{deleteByUsername()}}
+{\footnotesize\ttfamily void edu.\+unomaha.\+flightriskassessment.\+services.\+Professor\+Service.\+delete\+By\+Username (\begin{DoxyParamCaption}\item[{String}]{username }\end{DoxyParamCaption})}
+
+Deletes a row by its username 
+\begin{DoxyParams}{Parameters}
+{\em username} & -\/ The username of the row to be deleted \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a0945dc04b7f28c37a0edf1b28df8b780}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a0945dc04b7f28c37a0edf1b28df8b780}} 
+\index{edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}!getAll@{getAll}}
+\index{getAll@{getAll}!edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}}
+\doxysubsubsection{\texorpdfstring{getAll()}{getAll()}}
+{\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_professor}{Professor}}$>$ edu.\+unomaha.\+flightriskassessment.\+services.\+Professor\+Service.\+get\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets all professors from the database \begin{DoxyReturn}{Returns}
+-\/ All professors in the database currently 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a166dd2f7b58ffbbdb612f294b5241625}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a166dd2f7b58ffbbdb612f294b5241625}} 
+\index{edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}!getProfessorByFirstNameLastName@{getProfessorByFirstNameLastName}}
+\index{getProfessorByFirstNameLastName@{getProfessorByFirstNameLastName}!edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}}
+\doxysubsubsection{\texorpdfstring{getProfessorByFirstNameLastName()}{getProfessorByFirstNameLastName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_professor}{Professor}} edu.\+unomaha.\+flightriskassessment.\+services.\+Professor\+Service.\+get\+Professor\+By\+First\+Name\+Last\+Name (\begin{DoxyParamCaption}\item[{String}]{firstname,  }\item[{String}]{lastname }\end{DoxyParamCaption})}
+
+Gets a professor by their first name and last name 
+\begin{DoxyParams}{Parameters}
+{\em firstname} & -\/ Firstname of the professor to be gotten \\
+\hline
+{\em lastname} & -\/ Lastname of the professor to be gotten \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ A professor object mapped by the database info 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a15b1bd7ceb22ebac5760a6b3438dc262}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a15b1bd7ceb22ebac5760a6b3438dc262}} 
+\index{edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}!getProfessorById@{getProfessorById}}
+\index{getProfessorById@{getProfessorById}!edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}}
+\doxysubsubsection{\texorpdfstring{getProfessorById()}{getProfessorById()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_professor}{Professor}} edu.\+unomaha.\+flightriskassessment.\+services.\+Professor\+Service.\+get\+Professor\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+Gets a professor by their ID in the database 
+\begin{DoxyParams}{Parameters}
+{\em id} & -\/ The ID of the professor to be gotten \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ A professor object mapped by the database information 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a35ea9a1b373a995adb0bc008a4c26428}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a35ea9a1b373a995adb0bc008a4c26428}} 
+\index{edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}!getProfessorByUsername@{getProfessorByUsername}}
+\index{getProfessorByUsername@{getProfessorByUsername}!edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}}
+\doxysubsubsection{\texorpdfstring{getProfessorByUsername()}{getProfessorByUsername()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_professor}{Professor}} edu.\+unomaha.\+flightriskassessment.\+services.\+Professor\+Service.\+get\+Professor\+By\+Username (\begin{DoxyParamCaption}\item[{String}]{username }\end{DoxyParamCaption})}
+
+Gets a professor by their username 
+\begin{DoxyParams}{Parameters}
+{\em username} & -\/ The username of the professor to be gotten \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ A mapped professor object with the info from the database 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a494ed06838d7f8c2c042e55a69db30fc}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a494ed06838d7f8c2c042e55a69db30fc}} 
+\index{edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}!save@{save}}
+\index{save@{save}!edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void edu.\+unomaha.\+flightriskassessment.\+services.\+Professor\+Service.\+save (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_professor}{Professor}}}]{to\+Save }\end{DoxyParamCaption})}
+
+Saves a professor object to the database 
+\begin{DoxyParams}{Parameters}
+{\em to\+Save} & -\/ The professor to be saved \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_abce19c373db4baddc84c945d09256caa}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_abce19c373db4baddc84c945d09256caa}} 
+\index{edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}!updateByFirstNameLastName@{updateByFirstNameLastName}}
+\index{updateByFirstNameLastName@{updateByFirstNameLastName}!edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}}
+\doxysubsubsection{\texorpdfstring{updateByFirstNameLastName()}{updateByFirstNameLastName()}}
+{\footnotesize\ttfamily void edu.\+unomaha.\+flightriskassessment.\+services.\+Professor\+Service.\+update\+By\+First\+Name\+Last\+Name (\begin{DoxyParamCaption}\item[{String}]{firstname,  }\item[{String}]{lastname,  }\item[{\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_professor}{Professor}}}]{to\+Set }\end{DoxyParamCaption})}
+
+Updates a row in the database by first name and last name 
+\begin{DoxyParams}{Parameters}
+{\em firstname} & -\/ The firstname of the professor in the database \\
+\hline
+{\em lastname} & -\/ The last name of the professor in the database \\
+\hline
+{\em to\+Set} & -\/ The updated values to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a5ceb97ff765083f4883698b7f9abe4ad}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a5ceb97ff765083f4883698b7f9abe4ad}} 
+\index{edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}!updateById@{updateById}}
+\index{updateById@{updateById}!edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}}
+\doxysubsubsection{\texorpdfstring{updateById()}{updateById()}}
+{\footnotesize\ttfamily void edu.\+unomaha.\+flightriskassessment.\+services.\+Professor\+Service.\+update\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_professor}{Professor}}}]{to\+Set }\end{DoxyParamCaption})}
+
+Updates a row in the database by ID 
+\begin{DoxyParams}{Parameters}
+{\em id} & -\/ the ID of the professor row to be updated \\
+\hline
+{\em to\+Set} & -\/ The updated values to be set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a6dcfb7e73f6138b357c601b6417d3038}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_professor_service_a6dcfb7e73f6138b357c601b6417d3038}} 
+\index{edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}!updateByUsername@{updateByUsername}}
+\index{updateByUsername@{updateByUsername}!edu.unomaha.flightriskassessment.services.ProfessorService@{edu.unomaha.flightriskassessment.services.ProfessorService}}
+\doxysubsubsection{\texorpdfstring{updateByUsername()}{updateByUsername()}}
+{\footnotesize\ttfamily void edu.\+unomaha.\+flightriskassessment.\+services.\+Professor\+Service.\+update\+By\+Username (\begin{DoxyParamCaption}\item[{String}]{username,  }\item[{\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_professor}{Professor}}}]{to\+Set }\end{DoxyParamCaption})}
+
+Updates a row in the database by username 
+\begin{DoxyParams}{Parameters}
+{\em username} & -\/ The username of the professor row to be updated \\
+\hline
+{\em to\+Set} & -\/ The updated values to be set \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/zhart/\+One\+Drive/\+Desktop/school/capstone/workspace/capstone-\/flight-\/risk-\/assesment/src/main/java/edu/unomaha/flightriskassessment/services/Professor\+Service.\+java\end{DoxyCompactItemize}

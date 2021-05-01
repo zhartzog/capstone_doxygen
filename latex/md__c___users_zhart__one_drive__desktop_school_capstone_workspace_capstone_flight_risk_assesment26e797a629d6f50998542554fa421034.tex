@@ -1,0 +1,110 @@
+Additional \href{https://facebook.github.io/react/docs/reusable-components.html\#prop-validation}{\texttt{ Prop\+Types}} for \href{https://facebook.github.io/react/}{\texttt{ React}}.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment26e797a629d6f50998542554fa421034_autotoc_md541}{}\doxysection{Usage}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment26e797a629d6f50998542554fa421034_autotoc_md541}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import elementType from 'prop-\/types-\/extra/lib/elementType';}
+\DoxyCodeLine{// or}
+\DoxyCodeLine{import \{ elementType \} from 'prop-\/types-\/extra';}
+\DoxyCodeLine{}
+\DoxyCodeLine{const propTypes = \{}
+\DoxyCodeLine{  someProp: elementType,}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+If you want to minimize bundle size, import only the validators you use via\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import elementType from 'prop-\/types-\/extra/lib/elementType'}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment26e797a629d6f50998542554fa421034_autotoc_md542}{}\doxysection{Guide}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment26e797a629d6f50998542554fa421034_autotoc_md542}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment26e797a629d6f50998542554fa421034_autotoc_md543}{}\doxysubsection{Installation}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment26e797a629d6f50998542554fa421034_autotoc_md543}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$ npm i -\/S react}
+\DoxyCodeLine{\$ npm i -\/S prop-\/types-\/extra}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment26e797a629d6f50998542554fa421034_autotoc_md544}{}\doxysubsection{$<$a href=\char`\"{}/src/all.\+js\char`\"{}$>$$<$tt$>$all(...\+validators)$<$/tt$>$$<$/a$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment26e797a629d6f50998542554fa421034_autotoc_md544}
+This validator checks that all of the provided validators pass.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const propTypes = \{}
+\DoxyCodeLine{  vertical:  PropTypes.bool.isRequired,}
+\DoxyCodeLine{}
+\DoxyCodeLine{  block: all(}
+\DoxyCodeLine{    PropTypes.bool.isRequired,}
+\DoxyCodeLine{    (\{ block, vertical \}) => (}
+\DoxyCodeLine{      block \&\& !vertical ?}
+\DoxyCodeLine{        new Error('`block` requires `vertical` to be set to have any effect') :}
+\DoxyCodeLine{        null}
+\DoxyCodeLine{    ),}
+\DoxyCodeLine{  ),}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+The provided validators will be validated in order, stopping on the first failure. The combined validator will succeed only if all provided validators succeed.
+
+As in the example, this can be used to make a type assertion along with additional semantic assertions.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment26e797a629d6f50998542554fa421034_autotoc_md545}{}\doxysubsection{$<$a href=\char`\"{}/src/component\+Or\+Element.\+js\char`\"{}$>$$<$tt$>$component\+Or\+Element$<$/tt$>$$<$/a$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment26e797a629d6f50998542554fa421034_autotoc_md545}
+Checks that the value is a {\ttfamily React\+Component} or a {\ttfamily DOMElement}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const propTypes = \{}
+\DoxyCodeLine{  container: componentOrElement,}
+\DoxyCodeLine{  requiredContainer: componentOrElement.isRequired,}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+This ensures that the value is of the right type to pass to {\ttfamily React\+DOM.\+find\+DOMNode()}, for cases where you need a DOM node.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment26e797a629d6f50998542554fa421034_autotoc_md546}{}\doxysubsection{$<$a href=\char`\"{}/src/deprecated.\+js\char`\"{}$>$$<$tt$>$deprecated(validator, reason)$<$/tt$>$$<$/a$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment26e797a629d6f50998542554fa421034_autotoc_md546}
+This validator will log a deprecation warning if the value is present.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const propTypes = \{}
+\DoxyCodeLine{  collapsable: deprecated(PropTypes.bool, 'Use `collapsible` instead.'),}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+If the {\ttfamily collapsable} prop above is specified, this validator will log the warning\+:
+
+$>$The prop \`{}collapsable\`{} of \`{}\+My\+Component\`{} is deprecated. Use \`{}collapsible\`{} instead.
+
+This validator warns instead of failing on invalid values, and will still call the underlying validator if the deprecated value is present.
+
+This validator will only warn once on each deprecation. To clear the cache of warned messages, such as for clearing state between test cases intended to fail on deprecation warnings, call {\ttfamily deprecated.\+\_\+reset\+Warned()}.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment26e797a629d6f50998542554fa421034_autotoc_md547}{}\doxysubsection{$<$a href=\char`\"{}/src/element\+Type.\+js\char`\"{}$>$$<$tt$>$element\+Type$<$/tt$>$$<$/a$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment26e797a629d6f50998542554fa421034_autotoc_md547}
+Checks that the value is a React element type. This can be either a string (for DOM elements) or a {\ttfamily React\+Class} (for composite components).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const propTypes = \{}
+\DoxyCodeLine{  Component: elementType.isRequired,}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+This ensures that the value of is the right type for creating a {\ttfamily React\+Element}, such as with {\ttfamily $<$Component \{...props\} /$>$}.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment26e797a629d6f50998542554fa421034_autotoc_md548}{}\doxysubsection{$<$a href=\char`\"{}/src/is\+Required\+For\+A11y.\+js\char`\"{}$>$$<$tt$>$is\+Required\+For\+A11y(validator)$<$/tt$>$$<$/a$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment26e797a629d6f50998542554fa421034_autotoc_md548}
+This validator checks that the value required for accessibility are present.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const propTypes = \{}
+\DoxyCodeLine{  id: isRequiredForA11y(PropTypes.string),}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+If the {\ttfamily id} prop above is not specified, the validator will fail with\+:
+
+$>$The prop \`{}id\`{} is required to make \`{}\+My\+Component\`{} accessible for users of assistive technologies such as screen readers. 

@@ -1,0 +1,201 @@
+\href{https://www.npmjs.org/package/classnames}{\texttt{ }} \href{https://travis-ci.org/JedWatson/classnames}{\texttt{ }} \href{http://thinkmill.com.au/?utm_source=github&utm_medium=badge&utm_campaign=classnames}{\texttt{ }}
+
+A simple Java\+Script utility for conditionally joining class\+Names together.
+
+Install with \href{https://www.npmjs.com/}{\texttt{ npm}}, \href{https://bower.io/}{\texttt{ Bower}}, or \href{https://yarnpkg.com/}{\texttt{ Yarn}}\+:
+
+npm\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm install classnames -\/-\/save}
+
+\end{DoxyCode}
+
+
+Bower\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{bower install classnames -\/-\/save}
+
+\end{DoxyCode}
+
+
+Yarn (note that {\ttfamily yarn add} automatically saves the package to the {\ttfamily dependencies} in {\ttfamily package.\+json})\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{yarn add classnames}
+
+\end{DoxyCode}
+
+
+Use with \href{https://nodejs.org/en/}{\texttt{ Node.\+js}}, \href{http://browserify.org/}{\texttt{ Browserify}}, or \href{https://webpack.github.io/}{\texttt{ webpack}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var classNames = require('classnames');}
+\DoxyCodeLine{classNames('foo', 'bar'); // => 'foo bar'}
+
+\end{DoxyCode}
+
+
+Alternatively, you can simply include {\ttfamily index.\+js} on your page with a standalone {\ttfamily $<$script$>$} tag and it will export a global {\ttfamily class\+Names} method, or define the module if you are using Require\+JS.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md88}{}\doxysubsection{Project philosophy}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md88}
+We take the stability and performance of this package seriously, because it is run millions of times a day in browsers all around the world. Updates are thoroughly reviewed for performance impacts before being released, and we have a comprehensive test suite.
+
+Classnames follows the \href{http://semver.org/}{\texttt{ Sem\+Ver}} standard for versioning.
+
+There is also a \href{https://github.com/JedWatson/classnames/blob/master/HISTORY.md}{\texttt{ Changelog}}.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md89}{}\doxysection{Usage}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md89}
+The {\ttfamily class\+Names} function takes any number of arguments which can be a string or object. The argument `\textquotesingle{}foo'{\ttfamily is short for}\{ foo\+: true \}\`{}. If the value associated with a given key is falsy, that key won\textquotesingle{}t be included in the output.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{classNames('foo', 'bar'); // => 'foo bar'}
+\DoxyCodeLine{classNames('foo', \{ bar: true \}); // => 'foo bar'}
+\DoxyCodeLine{classNames(\{ 'foo-\/bar': true \}); // => 'foo-\/bar'}
+\DoxyCodeLine{classNames(\{ 'foo-\/bar': false \}); // => ''}
+\DoxyCodeLine{classNames(\{ foo: true \}, \{ bar: true \}); // => 'foo bar'}
+\DoxyCodeLine{classNames(\{ foo: true, bar: true \}); // => 'foo bar'}
+\DoxyCodeLine{}
+\DoxyCodeLine{// lots of arguments of various types}
+\DoxyCodeLine{classNames('foo', \{ bar: true, duck: false \}, 'baz', \{ quux: true \}); // => 'foo bar baz quux'}
+\DoxyCodeLine{}
+\DoxyCodeLine{// other falsy values are just ignored}
+\DoxyCodeLine{classNames(null, false, 'bar', undefined, 0, 1, \{ baz: null \}, ''); // => 'bar 1'}
+
+\end{DoxyCode}
+
+
+Arrays will be recursively flattened as per the rules above\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var arr = ['b', \{ c: true, d: false \}];}
+\DoxyCodeLine{classNames('a', arr); // => 'a b c'}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md90}{}\doxysubsection{Dynamic class names with ES2015}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md90}
+If you\textquotesingle{}re in an environment that supports \href{http://www.ecma-international.org/ecma-262/6.0/\#sec-object-initializer}{\texttt{ computed keys}} (available in ES2015 and Babel) you can use dynamic class names\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{let buttonType = 'primary';}
+\DoxyCodeLine{classNames(\{ [`btn-\/\$\{buttonType\}`]: true \});}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md91}{}\doxysubsection{Usage with React.\+js}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md91}
+This package is the official replacement for {\ttfamily class\+Set}, which was originally shipped in the React.\+js Addons bundle.
+
+One of its primary use cases is to make dynamic and conditional {\ttfamily class\+Name} props simpler to work with (especially more so than conditional string manipulation). So where you may have the following code to generate a {\ttfamily class\+Name} prop for a {\ttfamily $<$button$>$} in React\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var Button = React.createClass(\{}
+\DoxyCodeLine{  // ...}
+\DoxyCodeLine{  render () \{}
+\DoxyCodeLine{    var btnClass = 'btn';}
+\DoxyCodeLine{    if (this.state.isPressed) btnClass += ' btn-\/pressed';}
+\DoxyCodeLine{    else if (this.state.isHovered) btnClass += ' btn-\/over';}
+\DoxyCodeLine{    return <button className=\{btnClass\}>\{this.props.label\}</button>;}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+You can express the conditional classes more simply as an object\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var classNames = require('classnames');}
+\DoxyCodeLine{}
+\DoxyCodeLine{var Button = React.createClass(\{}
+\DoxyCodeLine{  // ...}
+\DoxyCodeLine{  render () \{}
+\DoxyCodeLine{    var btnClass = classNames(\{}
+\DoxyCodeLine{      btn: true,}
+\DoxyCodeLine{      'btn-\/pressed': this.state.isPressed,}
+\DoxyCodeLine{      'btn-\/over': !this.state.isPressed \&\& this.state.isHovered}
+\DoxyCodeLine{    \});}
+\DoxyCodeLine{    return <button className=\{btnClass\}>\{this.props.label\}</button>;}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+
+
+Because you can mix together object, array and string arguments, supporting optional {\ttfamily class\+Name} props is also simpler as only truthy arguments get included in the result\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var btnClass = classNames('btn', this.props.className, \{}
+\DoxyCodeLine{  'btn-\/pressed': this.state.isPressed,}
+\DoxyCodeLine{  'btn-\/over': !this.state.isPressed \&\& this.state.isHovered}
+\DoxyCodeLine{\});}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md92}{}\doxysubsection{Alternate $<$tt$>$dedupe$<$/tt$>$ version}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md92}
+There is an alternate version of {\ttfamily class\+Names} available which correctly dedupes classes and ensures that falsy classes specified in later arguments are excluded from the result set.
+
+This version is slower (about 5x) so it is offered as an opt-\/in.
+
+To use the dedupe version with Node.\+js, Browserify, or webpack\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var classNames = require('classnames/dedupe');}
+\DoxyCodeLine{}
+\DoxyCodeLine{classNames('foo', 'foo', 'bar'); // => 'foo bar'}
+\DoxyCodeLine{classNames('foo', \{ foo: false, bar: true \}); // => 'bar'}
+
+\end{DoxyCode}
+
+
+For standalone (global / AMD) use, include {\ttfamily dedupe.\+js} in a {\ttfamily $<$script$>$} tag on your page.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md93}{}\doxysubsection{Alternate $<$tt$>$bind$<$/tt$>$ version (for $<$a href=\char`\"{}https\+://github.\+com/css-\/modules/css-\/modules\char`\"{}$>$css-\/modules$<$/a$>$)}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md93}
+If you are using \href{https://github.com/css-modules/css-modules}{\texttt{ css-\/modules}}, or a similar approach to abstract class \char`\"{}names\char`\"{} and the real {\ttfamily class\+Name} values that are actually output to the DOM, you may want to use the {\ttfamily bind} variant.
+
+{\itshape Note that in ES2015 environments, it may be better to use the \char`\"{}dynamic class names\char`\"{} approach documented above.}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{var classNames = require('classnames/bind');}
+\DoxyCodeLine{}
+\DoxyCodeLine{var styles = \{}
+\DoxyCodeLine{  foo: 'abc',}
+\DoxyCodeLine{  bar: 'def',}
+\DoxyCodeLine{  baz: 'xyz'}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{var cx = classNames.bind(styles);}
+\DoxyCodeLine{}
+\DoxyCodeLine{var className = cx('foo', ['bar'], \{ baz: true \}); // => "{}abc def xyz"{}}
+
+\end{DoxyCode}
+
+
+Real-\/world example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/* components/submit-\/button.js */}
+\DoxyCodeLine{import \{ Component \} from 'react';}
+\DoxyCodeLine{import classNames from 'classnames/bind';}
+\DoxyCodeLine{import styles from './submit-\/button.css';}
+\DoxyCodeLine{}
+\DoxyCodeLine{let cx = classNames.bind(styles);}
+\DoxyCodeLine{}
+\DoxyCodeLine{export default class SubmitButton extends Component \{}
+\DoxyCodeLine{  render () \{}
+\DoxyCodeLine{    let text = this.props.store.submissionInProgress ? 'Processing...' : 'Submit';}
+\DoxyCodeLine{    let className = cx(\{}
+\DoxyCodeLine{      base: true,}
+\DoxyCodeLine{      inProgress: this.props.store.submissionInProgress,}
+\DoxyCodeLine{      error: this.props.store.errorOccurred,}
+\DoxyCodeLine{      disabled: this.props.form.valid,}
+\DoxyCodeLine{    \});}
+\DoxyCodeLine{    return <button className=\{className\}>\{text\}</button>;}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md94}{}\doxysection{Polyfills needed to support older browsers}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md94}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md95}{}\doxysubsubsection{$<$tt$>$class\+Names $>$=2.\+0.\+0$<$/tt$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md95}
+{\ttfamily Array.\+is\+Array}\+: see \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray}{\texttt{ MDN}} for details about unsupported older browsers (e.\+g. $<$= IE8) and a simple polyfill.
+
+{\ttfamily Object.\+keys}\+: see \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys}{\texttt{ MDN}} for details about unsupported older browsers (e.\+g. $<$= IE8) and a simple polyfill. This is only used in {\ttfamily dedupe.\+js}.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md96}{}\doxysection{License}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentbf98df501053161d4b6d666154ad8d2c_autotoc_md96}
+\mbox{[}MIT\mbox{]}(LICENSE). Copyright (c) 2017 Jed Watson. 

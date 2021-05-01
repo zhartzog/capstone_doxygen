@@ -1,0 +1,49 @@
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentee8efb5b3c0d5abf5b30e7e2a1227e29_autotoc_md608}{}\doxysection{What is this project?}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentee8efb5b3c0d5abf5b30e7e2a1227e29_autotoc_md608}
+React version 17 will deprecate several of the class component API lifecycles\+: {\ttfamily component\+Will\+Mount}, {\ttfamily component\+Will\+Receive\+Props}, and {\ttfamily component\+Will\+Update}. (Read the \href{https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html}{\texttt{ Update on Async rendering blog post}} to learn more about why.) A couple of new lifecycles are also being added to better support \href{https://reactjs.org/blog/2018/03/01/sneak-peek-beyond-react-16.html}{\texttt{ async rendering mode}}.
+
+Typically, this type of change would require third party libraries to release a new major version in order to adhere to semver. However, the {\ttfamily react-\/lifecycles-\/compat} polyfill offers a way to use the new lifecycles with older versions of React as well (0.\+14.\+9+) so no breaking release is required. This enables shared libraries to support both older and newer versions of React simultaneously.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentee8efb5b3c0d5abf5b30e7e2a1227e29_autotoc_md609}{}\doxysection{How can I use the polyfill}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentee8efb5b3c0d5abf5b30e7e2a1227e29_autotoc_md609}
+First, install the polyfill from NPM\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# Yarn}
+\DoxyCodeLine{yarn add react-\/lifecycles-\/compat}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# NPM}
+\DoxyCodeLine{npm install react-\/lifecycles-\/compat -\/-\/save}
+
+\end{DoxyCode}
+
+
+Next, update your component and replace any of the deprecated lifecycles with new ones introduced with React 16.\+3. (Refer to the React docs for \href{https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html}{\texttt{ examples of how to use the new lifecycles}}.)
+
+Lastly, use the polyfill to make the new lifecycles work with older versions of React\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import React from 'react';}
+\DoxyCodeLine{import \{polyfill\} from 'react-\/lifecycles-\/compat';}
+\DoxyCodeLine{}
+\DoxyCodeLine{class ExampleComponent extends React.Component \{}
+\DoxyCodeLine{  static getDerivedStateFromProps(nextProps, prevState) \{}
+\DoxyCodeLine{    // Normally this method would only work for React 16.3 and newer,}
+\DoxyCodeLine{    // But the polyfill will make it work for older versions also!}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  getSnapshotBeforeUpdate(prevProps, prevState) \{}
+\DoxyCodeLine{    // Normally this method would only work for React 16.3 and newer,}
+\DoxyCodeLine{    // But the polyfill will make it work for older versions also!}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  // render() and other methods ...}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{// Polyfill your component so the new lifecycles will work with older versions of React:}
+\DoxyCodeLine{polyfill(ExampleComponent);}
+\DoxyCodeLine{}
+\DoxyCodeLine{export default ExampleComponent;}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentee8efb5b3c0d5abf5b30e7e2a1227e29_autotoc_md610}{}\doxysection{Which lifecycles are supported?}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentee8efb5b3c0d5abf5b30e7e2a1227e29_autotoc_md610}
+Currently, this polyfill supports \href{https://reactjs.org/docs/react-component.html\#static-getderivedstatefromprops}{\texttt{ static {\ttfamily get\+Derived\+State\+From\+Props}}} and \href{https://reactjs.org/docs/react-component.html\#getsnapshotbeforeupdate}{\texttt{ {\ttfamily get\+Snapshot\+Before\+Update}}}-\/ both introduced in version 16.\+3.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentee8efb5b3c0d5abf5b30e7e2a1227e29_autotoc_md611}{}\doxysection{Validation}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentee8efb5b3c0d5abf5b30e7e2a1227e29_autotoc_md611}
+Note that in order for the polyfill to work, none of the following lifecycles can be defined by your component\+: {\ttfamily component\+Will\+Mount}, {\ttfamily component\+Will\+Receive\+Props}, or {\ttfamily component\+Will\+Update}.
+
+Note also that if your component contains {\ttfamily get\+Snapshot\+Before\+Update}, {\ttfamily component\+Did\+Update} must be defined as well.
+
+An error will be thrown if any of the above conditions are not met. 

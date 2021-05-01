@@ -1,0 +1,100 @@
+\begin{quote}
+Polyfill for the \href{https://github.com/reactjs/rfcs/pull/2}{\texttt{ proposed React context API}} \end{quote}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentd7a5fde66455a5215e4a0831ac497a48_autotoc_md98}{}\doxysection{Install}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentd7a5fde66455a5215e4a0831ac497a48_autotoc_md98}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{yarn add create-\/react-\/context}
+
+\end{DoxyCode}
+
+
+You\textquotesingle{}ll need to also have {\ttfamily react} and {\ttfamily prop-\/types} installed.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentd7a5fde66455a5215e4a0831ac497a48_autotoc_md99}{}\doxysection{API}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentd7a5fde66455a5215e4a0831ac497a48_autotoc_md99}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const Context = createReactContext(defaultValue);}
+\DoxyCodeLine{// <Context.Provider value=\{providedValue\}>\{children\}</Context.Provider>}
+\DoxyCodeLine{// ...}
+\DoxyCodeLine{// <Context.Consumer>\{value => children\}</Context.Consumer>}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentd7a5fde66455a5215e4a0831ac497a48_autotoc_md100}{}\doxysection{Example}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentd7a5fde66455a5215e4a0831ac497a48_autotoc_md100}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{// @flow}
+\DoxyCodeLine{import React, \{ type Node \} from 'react';}
+\DoxyCodeLine{import createReactContext, \{ type Context \} from 'create-\/react-\/context';}
+\DoxyCodeLine{}
+\DoxyCodeLine{type Theme = 'light' | 'dark';}
+\DoxyCodeLine{// Pass a default theme to ensure type correctness}
+\DoxyCodeLine{const ThemeContext: Context<Theme> = createReactContext('light');}
+\DoxyCodeLine{}
+\DoxyCodeLine{class ThemeToggler extends React.Component<}
+\DoxyCodeLine{  \{ children: Node \},}
+\DoxyCodeLine{  \{ theme: Theme \}}
+\DoxyCodeLine{> \{}
+\DoxyCodeLine{  state = \{ theme: 'light' \};}
+\DoxyCodeLine{  render() \{}
+\DoxyCodeLine{    return (}
+\DoxyCodeLine{      // Pass the current context value to the Provider's `value` prop.}
+\DoxyCodeLine{      // Changes are detected using strict comparison (Object.is)}
+\DoxyCodeLine{      <ThemeContext.Provider value=\{this.state.theme\}>}
+\DoxyCodeLine{        <button}
+\DoxyCodeLine{          onClick=\{() => \{}
+\DoxyCodeLine{            this.setState(state => (\{}
+\DoxyCodeLine{              theme: state.theme === 'light' ? 'dark' : 'light'}
+\DoxyCodeLine{            \}));}
+\DoxyCodeLine{          \}\}}
+\DoxyCodeLine{        >}
+\DoxyCodeLine{          Toggle theme}
+\DoxyCodeLine{        </button>}
+\DoxyCodeLine{        \{this.props.children\}}
+\DoxyCodeLine{      </ThemeContext.Provider>}
+\DoxyCodeLine{    );}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class Title extends React.Component<\{ children: Node \}> \{}
+\DoxyCodeLine{  render() \{}
+\DoxyCodeLine{    return (}
+\DoxyCodeLine{      // The Consumer uses a render prop API. Avoids conflicts in the}
+\DoxyCodeLine{      // props namespace.}
+\DoxyCodeLine{      <ThemeContext.Consumer>}
+\DoxyCodeLine{        \{theme => (}
+\DoxyCodeLine{          <h1 style=\{\{ color: theme === 'light' ? '\#000' : '\#fff' \}\}>}
+\DoxyCodeLine{            \{this.props.children\}}
+\DoxyCodeLine{          </h1>}
+\DoxyCodeLine{        )\}}
+\DoxyCodeLine{      </ThemeContext.Consumer>}
+\DoxyCodeLine{    );}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentd7a5fde66455a5215e4a0831ac497a48_autotoc_md101}{}\doxysection{Compatibility}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentd7a5fde66455a5215e4a0831ac497a48_autotoc_md101}
+This package only \char`\"{}ponyfills\char`\"{} the {\ttfamily React.\+create\+Context} API, not other unrelated React 16+ APIs. If you are using a version of React $<$16, keep in mind that you can only use features available in that version.
+
+For example, you cannot pass children types aren\textquotesingle{}t valid pre React 16\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<Context.Provider>}
+\DoxyCodeLine{  <div/>}
+\DoxyCodeLine{  <div/>}
+\DoxyCodeLine{</Context.Provider>}
+
+\end{DoxyCode}
+
+
+It will throw {\ttfamily A valid React element (or null) must be returned. You may have returned undefined, an array or some other invalid object.} because {\ttfamily $<$Context.\+Provider$>$} can only receive a single child element. To fix the error just wrap everyting in a single {\ttfamily $<$div$>$}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<Context.Provider>}
+\DoxyCodeLine{  <div>}
+\DoxyCodeLine{    <div/>}
+\DoxyCodeLine{    <div/>}
+\DoxyCodeLine{  </div>}
+\DoxyCodeLine{</Context.Provider>}
+
+\end{DoxyCode}
+ 

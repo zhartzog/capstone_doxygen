@@ -1,0 +1,48 @@
+\href{https://travis-ci.org/zertosh/loose-envify}{\texttt{ }}
+
+Fast (and loose) selective {\ttfamily process.\+env} replacer using \href{https://github.com/lydell/js-tokens}{\texttt{ js-\/tokens}} instead of an AST. Works just like \href{https://github.com/hughsk/envify}{\texttt{ envify}} but much faster.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment63a1a6f7088a91e6deb436f9f7162a80_autotoc_md473}{}\doxysection{Gotchas}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment63a1a6f7088a91e6deb436f9f7162a80_autotoc_md473}
+
+\begin{DoxyItemize}
+\item Doesn\textquotesingle{}t handle broken syntax.
+\item Doesn\textquotesingle{}t look inside embedded expressions in template strings.
+\begin{DoxyItemize}
+\item {\bfseries{this won\textquotesingle{}t work\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{console.log(`the current env is \$\{process.env.NODE\_ENV\}`);}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+\item Doesn\textquotesingle{}t replace oddly-\/spaced or oddly-\/commented expressions.
+\begin{DoxyItemize}
+\item {\bfseries{this won\textquotesingle{}t work\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{console.log(process./*won't*/env./*work*/NODE\_ENV);}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment63a1a6f7088a91e6deb436f9f7162a80_autotoc_md474}{}\doxysection{Usage/\+Options}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment63a1a6f7088a91e6deb436f9f7162a80_autotoc_md474}
+loose-\/envify has the exact same interface as \href{https://github.com/hughsk/envify}{\texttt{ envify}}, including the CLI.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment63a1a6f7088a91e6deb436f9f7162a80_autotoc_md475}{}\doxysection{Benchmark}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment63a1a6f7088a91e6deb436f9f7162a80_autotoc_md475}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{envify:}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \$ for i in \{1..5\}; do node bench/bench.js 'envify'; done}
+\DoxyCodeLine{  708ms}
+\DoxyCodeLine{  727ms}
+\DoxyCodeLine{  791ms}
+\DoxyCodeLine{  719ms}
+\DoxyCodeLine{  720ms}
+\DoxyCodeLine{}
+\DoxyCodeLine{loose-\/envify:}
+\DoxyCodeLine{}
+\DoxyCodeLine{  \$ for i in \{1..5\}; do node bench/bench.js '../'; done}
+\DoxyCodeLine{  51ms}
+\DoxyCodeLine{  52ms}
+\DoxyCodeLine{  52ms}
+\DoxyCodeLine{  52ms}
+\DoxyCodeLine{  52ms}
+
+\end{DoxyCode}
+ 

@@ -1,0 +1,103 @@
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md404}{}\doxysection{Common changes}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md404}
+This page covers a few of the most common problems people face when updating from v1 to v2. For a more detailed list of changes, look at the \href{https://date-fns.org/docs/Change-Log\#2.0.0-2019-08-20}{\texttt{ change log for version 2.\+0.\+0}}.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md405}{}\doxysubsection{Camel case naming schema}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md405}
+Function submodules now use camel\+Case naming schema\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{// Before v2.0.0}
+\DoxyCodeLine{import differenceInCalendarISOYears from 'date-\/fns/difference\_in\_calendar\_iso\_years'}
+\DoxyCodeLine{}
+\DoxyCodeLine{// v2.0.0 onward}
+\DoxyCodeLine{import differenceInCalendarISOYears from 'date-\/fns/differenceInCalendarISOYears'}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md406}{}\doxysubsection{New formatting tokens}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md406}
+Starting with v2 {\ttfamily format} and {\ttfamily parse} uses \href{https://www.unicode.org/reports/tr35/tr35-dates.html\#Date_Field_Symbol_Table}{\texttt{ Unicode tokens}}.
+
+See \href{https://date-fns.org/docs/Unicode-Tokens}{\texttt{ Unicode Tokens doc}} for more details.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md407}{}\doxysubsection{String arguments}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md407}
+Functions now don\textquotesingle{}t accept strings as date arguments. Strings should be parsed using {\ttfamily parse\+ISO} (ISO 8601) or {\ttfamily parse}.
+
+See \href{https://blog.date-fns.org/post/we-cut-date-fns-v2-minimal-build-size-down-to-300-bytes-and-now-its-the-smallest-date-library-18f2nvh2z0yal}{\texttt{ this post}} for more details.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{// Before v2.0.0}
+\DoxyCodeLine{addDays('2016-\/01-\/01', 1)}
+\DoxyCodeLine{}
+\DoxyCodeLine{// v2.0.0 onward}
+\DoxyCodeLine{addDays(parseISO('2016-\/01-\/01'), 1)}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md408}{}\doxysubsection{Arguments conversion}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md408}
+All functions now implicitly convert arguments by following rules\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ date   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ number   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ string   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ boolean    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ date   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ number   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ string   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ boolean    }\\\cline{1-5}
+\endhead
+0   &new Date(0)   &0   &\textquotesingle{}0\textquotesingle{}   &false    \\\cline{1-5}
+\textquotesingle{}0\textquotesingle{}   &Invalid Date   &0   &\textquotesingle{}0\textquotesingle{}   &false    \\\cline{1-5}
+1   &new Date(1)   &1   &\textquotesingle{}1\textquotesingle{}   &true    \\\cline{1-5}
+\textquotesingle{}1\textquotesingle{}   &Invalid Date   &1   &\textquotesingle{}1\textquotesingle{}   &true    \\\cline{1-5}
+true   &Invalid Date   &NaN   &\textquotesingle{}true\textquotesingle{}   &true    \\\cline{1-5}
+false   &Invalid Date   &NaN   &\textquotesingle{}false\textquotesingle{}   &false    \\\cline{1-5}
+null   &Invalid Date   &NaN   &\textquotesingle{}null\textquotesingle{}   &false    \\\cline{1-5}
+undefined   &Invalid Date   &NaN   &\textquotesingle{}undefined\textquotesingle{}   &false    \\\cline{1-5}
+NaN   &Invalid Date   &NaN   &\textquotesingle{}NaN\textquotesingle{}   &false   \\\cline{1-5}
+\end{longtabu}
+
+
+Notes\+:
+
+
+\begin{DoxyItemize}
+\item as before, arguments expected to be {\ttfamily Date} are converted to {\ttfamily Date} using {\itshape date-\/fns\textquotesingle{}} {\ttfamily to\+Date} function;
+\item arguments expected to be numbers are converted to integer numbers using our custom {\ttfamily to\+Integer} implementation (see \href{https://github.com/date-fns/date-fns/pull/765}{\texttt{ \#765}});
+\item arguments expected to be strings are converted to strings using Java\+Script\textquotesingle{}s {\ttfamily String} function;
+\item arguments expected to be booleans are converted to boolean using Java\+Script\textquotesingle{}s {\ttfamily Boolean} function.
+\end{DoxyItemize}
+
+{\ttfamily null} and {\ttfamily undefined} passed to optional arguments (i.\+e. properties of {\ttfamily options} argument) are ignored as if no argument was passed.
+
+If any argument is invalid (i.\+e. {\ttfamily NaN} for numbers and {\ttfamily Invalid Date} for dates), an invalid value will be returned\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily false} for functions that return booleans (expect {\ttfamily is\+Valid});
+\item {\ttfamily Invalid Date} for functions that return dates;
+\item {\ttfamily NaN} for functions that return numbers;
+\item and `String(\textquotesingle{}Invalid Date')\`{} for functions that return strings.
+\end{DoxyItemize}
+
+See tests and PRs \href{https://github.com/date-fns/date-fns/pull/460}{\texttt{ \#460}} and \href{https://github.com/date-fns/date-fns/pull/765}{\texttt{ \#765}} for exact behavior.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md409}{}\doxysubsection{$<$tt$>$null$<$/tt$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md409}
+{\ttfamily null} now is not a valid date. {\ttfamily is\+Valid(null)} returns {\ttfamily false}; {\ttfamily to\+Date(null)} returns an invalid date. Since {\ttfamily to\+Date} is used internally by all the functions, operations over {\ttfamily null} will also return an invalid date. \href{https://github.com/date-fns/date-fns/issues/537}{\texttt{ See \#537}} for the reasoning.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md410}{}\doxysubsection{$<$tt$>$\+Range\+Error$<$/tt$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md410}
+Functions now throw {\ttfamily Range\+Error} if optional values passed to {\ttfamily options} are not {\ttfamily undefined} or have expected values. This change is introduced for consistency with ECMAScript standard library which does the same.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md411}{}\doxysubsection{$<$tt$>$\+Type\+Error$<$/tt$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md411}
+All functions now check if the passed number of arguments is less than the number of required arguments and throw {\ttfamily Type\+Error} exception if so.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md412}{}\doxysubsection{UMD/\+CDN}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md412}
+The Bower \& UMD/\+CDN package versions are no longer supported.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md413}{}\doxysubsection{New locale format}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment75f5d7da3a724153608cb7033416e623_autotoc_md413}
+See \href{https://date-fns.org/docs/Locale}{\texttt{ docs/\+Locale}}.
+
+Locales renamed\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily en} → {\ttfamily en-\/\+US}
+\item {\ttfamily zh\+\_\+cn} → {\ttfamily zh-\/\+CN}
+\item {\ttfamily zh\+\_\+tw} → {\ttfamily zh-\/\+TW}
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{// Before v2.0.0}
+\DoxyCodeLine{import locale from 'date-\/fns/locale/zh\_cn'}
+\DoxyCodeLine{}
+\DoxyCodeLine{// v2.0.0 onward}
+\DoxyCodeLine{import locale from 'date-\/fns/locale/zh-\/CN'}
+
+\end{DoxyCode}
+ 

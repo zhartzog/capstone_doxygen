@@ -1,0 +1,41 @@
+Thanks for taking your time to read this. We\textquotesingle{}re thrilled you\textquotesingle{}re reading this because we the help from the community to keep improving this project.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmenta10553d3c11ffaa720d249b5ceb0288d_autotoc_md564}{}\doxysection{Testing}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmenta10553d3c11ffaa720d249b5ceb0288d_autotoc_md564}
+We have a handful of Cucumber features, but most of our testbed consists of RSpec examples. Please write RSpec examples for new code you create.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmenta10553d3c11ffaa720d249b5ceb0288d_autotoc_md565}{}\doxysection{Submitting changes}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmenta10553d3c11ffaa720d249b5ceb0288d_autotoc_md565}
+Please send a \href{https://github.com/Hacker0x01/react-datepicker/pull/new/master}{\texttt{ Git\+Hub Pull Request}} with a clear list of what you\textquotesingle{}ve done (read more about \href{https://help.github.com/articles/about-pull-requests/}{\texttt{ pull requests}}). When you send a pull request, we will love you forever if you include a test to cover your changes. We can always use more test coverage. Always write a clear log message for your commits. One-\/line messages are fine for small changes, but bigger changes should look like this\+: \$ git commit -\/m \char`\"{}\+A summary of the commit $>$ $>$ A paragraph describing what changed and its impact.\char`\"{}\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmenta10553d3c11ffaa720d249b5ceb0288d_autotoc_md566}{}\doxysection{Coding conventions}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmenta10553d3c11ffaa720d249b5ceb0288d_autotoc_md566}
+Start reading our code, and you\textquotesingle{}ll get the hang of it. We optimize for readability\+:
+
+
+\begin{DoxyItemize}
+\item We use prettier for code styling. Don\textquotesingle{}t worry about tabs vs spaces, or how to indent your code.
+\item We use ESlint for all other coding standards. We try to be consistent and helpful.
+\item This is open source software. Consider the people who will read your code, and make it look nice for them. It\textquotesingle{}s sort of like driving a car\+: Perhaps you love doing donuts when you\textquotesingle{}re alone, but with passengers, the goal is to make the ride as smooth as possible.
+\end{DoxyItemize}\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmenta10553d3c11ffaa720d249b5ceb0288d_autotoc_md567}{}\doxysection{Getting set up}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmenta10553d3c11ffaa720d249b5ceb0288d_autotoc_md567}
+Local development configuration is pretty snappy. Here\textquotesingle{}s how to get set up\+:
+
+
+\begin{DoxyEnumerate}
+\item Install/use node $>$=11.\+10.\+1
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Run {\ttfamily yarn link} from project root
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Run {\ttfamily cd docs-\/site \&\& yarn link react-\/datepicker}
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Run {\ttfamily yarn install} from project root
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Run {\ttfamily yarn build} from project root (at least the first time, this will get you the {\ttfamily dist} directory that holds the code that will be linked to)
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Run {\ttfamily yarn start} from project root
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Open new terminal window
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item After each JS change run {\ttfamily yarn build\+:js} in project root
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item After each SCSS change run {\ttfamily yarn run css\+:dev \&\& yarn run css\+:modules\+:dev} in project root 
+\end{DoxyEnumerate}

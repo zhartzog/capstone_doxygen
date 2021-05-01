@@ -1,0 +1,120 @@
+\hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service}{}\doxysection{edu.\+unomaha.\+flightriskassessment.\+services.\+Admin\+Table\+Service Class Reference}
+\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service}\index{edu.unomaha.flightriskassessment.services.AdminTableService@{edu.unomaha.flightriskassessment.services.AdminTableService}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a07ee607905dfde7c99550d8605b88fc1}{save}} (\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}} admin\+Thresholds)
+\item 
+Array\+List$<$ \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}} $>$ \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a1f72e916c858c8420adec9b38251f363}{get\+All\+Thresholds}} ()
+\item 
+\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}} \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_ad946653681344374b2dfcf5da4657031}{get\+Thresholds\+By\+Id}} (int id)
+\item 
+\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}} \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a326bc9dc3a6143897b1b0f4ccdd01510}{get\+Threshold\+By\+Group\+Name\+Category}} (String group, String name, String category)
+\item 
+void \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a3bfddc56c2fc3d676dda51eb2b7eaf24}{update\+By\+Id}} (\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}} to\+Set, int admin\+Thresholds\+Id)
+\item 
+void \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a28b4870deadaf5fa3fa1a7b62ef135f1}{update\+By\+Group\+Name\+Category}} (\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}} to\+Set, String group, String name, String category)
+\item 
+void \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a47de68b47a962665c75ccb1777ee722e}{delete\+By\+Id}} (int id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a47de68b47a962665c75ccb1777ee722e}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a47de68b47a962665c75ccb1777ee722e}} 
+\index{edu.unomaha.flightriskassessment.services.AdminTableService@{edu.unomaha.flightriskassessment.services.AdminTableService}!deleteById@{deleteById}}
+\index{deleteById@{deleteById}!edu.unomaha.flightriskassessment.services.AdminTableService@{edu.unomaha.flightriskassessment.services.AdminTableService}}
+\doxysubsubsection{\texorpdfstring{deleteById()}{deleteById()}}
+{\footnotesize\ttfamily void edu.\+unomaha.\+flightriskassessment.\+services.\+Admin\+Table\+Service.\+delete\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+Deletes a row by its ID 
+\begin{DoxyParams}{Parameters}
+{\em id} & -\/ The ID of the row to delete \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a1f72e916c858c8420adec9b38251f363}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a1f72e916c858c8420adec9b38251f363}} 
+\index{edu.unomaha.flightriskassessment.services.AdminTableService@{edu.unomaha.flightriskassessment.services.AdminTableService}!getAllThresholds@{getAllThresholds}}
+\index{getAllThresholds@{getAllThresholds}!edu.unomaha.flightriskassessment.services.AdminTableService@{edu.unomaha.flightriskassessment.services.AdminTableService}}
+\doxysubsubsection{\texorpdfstring{getAllThresholds()}{getAllThresholds()}}
+{\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}}$>$ edu.\+unomaha.\+flightriskassessment.\+services.\+Admin\+Table\+Service.\+get\+All\+Thresholds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+In between method that calls the repository to get all thresholds \begin{DoxyReturn}{Returns}
+-\/ A list of all thresholds in the database 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a326bc9dc3a6143897b1b0f4ccdd01510}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a326bc9dc3a6143897b1b0f4ccdd01510}} 
+\index{edu.unomaha.flightriskassessment.services.AdminTableService@{edu.unomaha.flightriskassessment.services.AdminTableService}!getThresholdByGroupNameCategory@{getThresholdByGroupNameCategory}}
+\index{getThresholdByGroupNameCategory@{getThresholdByGroupNameCategory}!edu.unomaha.flightriskassessment.services.AdminTableService@{edu.unomaha.flightriskassessment.services.AdminTableService}}
+\doxysubsubsection{\texorpdfstring{getThresholdByGroupNameCategory()}{getThresholdByGroupNameCategory()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}} edu.\+unomaha.\+flightriskassessment.\+services.\+Admin\+Table\+Service.\+get\+Threshold\+By\+Group\+Name\+Category (\begin{DoxyParamCaption}\item[{String}]{group,  }\item[{String}]{name,  }\item[{String}]{category }\end{DoxyParamCaption})}
+
+Gets a row by the group, name, and category values 
+\begin{DoxyParams}{Parameters}
+{\em group} & -\/ The group of the row \\
+\hline
+{\em name} & -\/ The name of the row \\
+\hline
+{\em category} & -\/ The category of the row \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ A populated threshold object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_ad946653681344374b2dfcf5da4657031}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_ad946653681344374b2dfcf5da4657031}} 
+\index{edu.unomaha.flightriskassessment.services.AdminTableService@{edu.unomaha.flightriskassessment.services.AdminTableService}!getThresholdsById@{getThresholdsById}}
+\index{getThresholdsById@{getThresholdsById}!edu.unomaha.flightriskassessment.services.AdminTableService@{edu.unomaha.flightriskassessment.services.AdminTableService}}
+\doxysubsubsection{\texorpdfstring{getThresholdsById()}{getThresholdsById()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}} edu.\+unomaha.\+flightriskassessment.\+services.\+Admin\+Table\+Service.\+get\+Thresholds\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+In between method that calls the repository to get a threshold by ID 
+\begin{DoxyParams}{Parameters}
+{\em id} & -\/ the ID of the row to be gotten \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ the corresponding row data 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a07ee607905dfde7c99550d8605b88fc1}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a07ee607905dfde7c99550d8605b88fc1}} 
+\index{edu.unomaha.flightriskassessment.services.AdminTableService@{edu.unomaha.flightriskassessment.services.AdminTableService}!save@{save}}
+\index{save@{save}!edu.unomaha.flightriskassessment.services.AdminTableService@{edu.unomaha.flightriskassessment.services.AdminTableService}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void edu.\+unomaha.\+flightriskassessment.\+services.\+Admin\+Table\+Service.\+save (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}}}]{admin\+Thresholds }\end{DoxyParamCaption})}
+
+In between method that calls the repository to save a threshold value 
+\begin{DoxyParams}{Parameters}
+{\em admin\+Thresholds} & -\/ The threshold to save \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a28b4870deadaf5fa3fa1a7b62ef135f1}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a28b4870deadaf5fa3fa1a7b62ef135f1}} 
+\index{edu.unomaha.flightriskassessment.services.AdminTableService@{edu.unomaha.flightriskassessment.services.AdminTableService}!updateByGroupNameCategory@{updateByGroupNameCategory}}
+\index{updateByGroupNameCategory@{updateByGroupNameCategory}!edu.unomaha.flightriskassessment.services.AdminTableService@{edu.unomaha.flightriskassessment.services.AdminTableService}}
+\doxysubsubsection{\texorpdfstring{updateByGroupNameCategory()}{updateByGroupNameCategory()}}
+{\footnotesize\ttfamily void edu.\+unomaha.\+flightriskassessment.\+services.\+Admin\+Table\+Service.\+update\+By\+Group\+Name\+Category (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}}}]{to\+Set,  }\item[{String}]{group,  }\item[{String}]{name,  }\item[{String}]{category }\end{DoxyParamCaption})}
+
+Updates a row by the unique grouping of the 3 string parameters 
+\begin{DoxyParams}{Parameters}
+{\em to\+Set} & -\/ The threshold values to use to update \\
+\hline
+{\em group} & -\/ The group of the threshold to update \\
+\hline
+{\em name} & -\/ The name of the threshold to update \\
+\hline
+{\em category} & -\/ The category of the threshold to update \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a3bfddc56c2fc3d676dda51eb2b7eaf24}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1services_1_1_admin_table_service_a3bfddc56c2fc3d676dda51eb2b7eaf24}} 
+\index{edu.unomaha.flightriskassessment.services.AdminTableService@{edu.unomaha.flightriskassessment.services.AdminTableService}!updateById@{updateById}}
+\index{updateById@{updateById}!edu.unomaha.flightriskassessment.services.AdminTableService@{edu.unomaha.flightriskassessment.services.AdminTableService}}
+\doxysubsubsection{\texorpdfstring{updateById()}{updateById()}}
+{\footnotesize\ttfamily void edu.\+unomaha.\+flightriskassessment.\+services.\+Admin\+Table\+Service.\+update\+By\+Id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}}}]{to\+Set,  }\item[{int}]{admin\+Thresholds\+Id }\end{DoxyParamCaption})}
+
+Updates a row by its unique id value 
+\begin{DoxyParams}{Parameters}
+{\em Admin\+Table} & -\/ The threshold to update with \\
+\hline
+{\em admin\+Thresholds\+Id} & -\/ The ID of the threshold in the database to be updated \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/zhart/\+One\+Drive/\+Desktop/school/capstone/workspace/capstone-\/flight-\/risk-\/assesment/src/main/java/edu/unomaha/flightriskassessment/services/Admin\+Table\+Service.\+java\end{DoxyCompactItemize}

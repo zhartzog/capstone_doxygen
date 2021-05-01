@@ -1,0 +1,36 @@
+React context helpers.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd306e391e20dc6652c03faee22c36e3_autotoc_md20}{}\doxysection{Install}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd306e391e20dc6652c03faee22c36e3_autotoc_md20}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm install @restart/context}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd306e391e20dc6652c03faee22c36e3_autotoc_md21}{}\doxysection{Usage}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd306e391e20dc6652c03faee22c36e3_autotoc_md21}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import React from 'react';}
+\DoxyCodeLine{import mapContextToProps from '@restart/context/mapContextToProps';}
+\DoxyCodeLine{}
+\DoxyCodeLine{const MyValueContext = React.createContext(null);}
+\DoxyCodeLine{}
+\DoxyCodeLine{function MyComponent(props) \{}
+\DoxyCodeLine{  /* ... */}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{const MyComponentWithMyValue = mapContextToProps(}
+\DoxyCodeLine{  MyValueContext,}
+\DoxyCodeLine{  myValue => (\{ myValue \}),}
+\DoxyCodeLine{  MyComponent,}
+\DoxyCodeLine{);}
+\DoxyCodeLine{}
+\DoxyCodeLine{const withMyValue = Component =>}
+\DoxyCodeLine{  mapContextToProps(}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{      consumers: MyValueContext,}
+\DoxyCodeLine{      mapToProps: myValue => (\{ myValue \}),}
+\DoxyCodeLine{      displayName: `withMyValue(\$\{Component.displayName || Component.name\})`,}
+\DoxyCodeLine{    \},}
+\DoxyCodeLine{    Component,}
+\DoxyCodeLine{  );}
+
+\end{DoxyCode}
+ 

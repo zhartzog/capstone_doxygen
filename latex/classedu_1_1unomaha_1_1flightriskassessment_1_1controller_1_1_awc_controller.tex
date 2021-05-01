@@ -1,0 +1,68 @@
+\hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1controller_1_1_awc_controller}{}\doxysection{edu.\+unomaha.\+flightriskassessment.\+controller.\+Awc\+Controller Class Reference}
+\label{classedu_1_1unomaha_1_1flightriskassessment_1_1controller_1_1_awc_controller}\index{edu.unomaha.flightriskassessment.controller.AwcController@{edu.unomaha.flightriskassessment.controller.AwcController}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1awc_1_1_metar}{Metar}} \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1controller_1_1_awc_controller_a935fdf08bde1e67c53b1a3640ab37a9a}{get\+Metar\+Data}} (String airport\+ID)
+\item 
+\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1awc_1_1_taf}{Taf}} \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1controller_1_1_awc_controller_a4ee0cece955e444f46026829045a1bf6}{get\+Taf\+Data}} (@Request\+Param int radius, @Request\+Param String lat\+Long)
+\item 
+List$<$ \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1awc_1_1_pirep}{Pirep}} $>$ \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1controller_1_1_awc_controller_a8ae3c7893c40c91a5141d3470f382594}{get\+Pireps}} (@Request\+Param int radius, @Request\+Param String lat\+Long)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller class to provide mappings for AWC services 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1controller_1_1_awc_controller_a935fdf08bde1e67c53b1a3640ab37a9a}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1controller_1_1_awc_controller_a935fdf08bde1e67c53b1a3640ab37a9a}} 
+\index{edu.unomaha.flightriskassessment.controller.AwcController@{edu.unomaha.flightriskassessment.controller.AwcController}!getMetarData@{getMetarData}}
+\index{getMetarData@{getMetarData}!edu.unomaha.flightriskassessment.controller.AwcController@{edu.unomaha.flightriskassessment.controller.AwcController}}
+\doxysubsubsection{\texorpdfstring{getMetarData()}{getMetarData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1awc_1_1_metar}{Metar}} edu.\+unomaha.\+flightriskassessment.\+controller.\+Awc\+Controller.\+get\+Metar\+Data (\begin{DoxyParamCaption}\item[{String}]{airport\+ID }\end{DoxyParamCaption})}
+
+Mapping to get the metar data for an airport ID 
+\begin{DoxyParams}{Parameters}
+{\em airport\+ID} & -\/ The 4 letter airport ID to get the metar data for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ The metar data 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1controller_1_1_awc_controller_a8ae3c7893c40c91a5141d3470f382594}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1controller_1_1_awc_controller_a8ae3c7893c40c91a5141d3470f382594}} 
+\index{edu.unomaha.flightriskassessment.controller.AwcController@{edu.unomaha.flightriskassessment.controller.AwcController}!getPireps@{getPireps}}
+\index{getPireps@{getPireps}!edu.unomaha.flightriskassessment.controller.AwcController@{edu.unomaha.flightriskassessment.controller.AwcController}}
+\doxysubsubsection{\texorpdfstring{getPireps()}{getPireps()}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1awc_1_1_pirep}{Pirep}}$>$ edu.\+unomaha.\+flightriskassessment.\+controller.\+Awc\+Controller.\+get\+Pireps (\begin{DoxyParamCaption}\item[{@Request\+Param int}]{radius,  }\item[{@Request\+Param String}]{lat\+Long }\end{DoxyParamCaption})}
+
+Mapping to get the Pilot reports for a radius and latitude longitude value 
+\begin{DoxyParams}{Parameters}
+{\em radius} & -\/ The radius value \\
+\hline
+{\em lat\+Long} & -\/ The latitude/longitude value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ The pilot reports 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1controller_1_1_awc_controller_a4ee0cece955e444f46026829045a1bf6}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1controller_1_1_awc_controller_a4ee0cece955e444f46026829045a1bf6}} 
+\index{edu.unomaha.flightriskassessment.controller.AwcController@{edu.unomaha.flightriskassessment.controller.AwcController}!getTafData@{getTafData}}
+\index{getTafData@{getTafData}!edu.unomaha.flightriskassessment.controller.AwcController@{edu.unomaha.flightriskassessment.controller.AwcController}}
+\doxysubsubsection{\texorpdfstring{getTafData()}{getTafData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1awc_1_1_taf}{Taf}} edu.\+unomaha.\+flightriskassessment.\+controller.\+Awc\+Controller.\+get\+Taf\+Data (\begin{DoxyParamCaption}\item[{@Request\+Param int}]{radius,  }\item[{@Request\+Param String}]{lat\+Long }\end{DoxyParamCaption})}
+
+Mapping to get the TAF data for a radius and latitude longitude value 
+\begin{DoxyParams}{Parameters}
+{\em radius} & -\/ The radius value \\
+\hline
+{\em lat\+Long} & -\/ The latitude/longitude value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ The TAF data 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/zhart/\+One\+Drive/\+Desktop/school/capstone/workspace/capstone-\/flight-\/risk-\/assesment/src/main/java/edu/unomaha/flightriskassessment/controller/Awc\+Controller.\+java\end{DoxyCompactItemize}

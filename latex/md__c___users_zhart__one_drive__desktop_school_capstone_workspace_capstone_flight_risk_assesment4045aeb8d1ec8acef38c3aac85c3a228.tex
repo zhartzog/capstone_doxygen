@@ -1,0 +1,167 @@
+\href{https://badge.fury.io/js/react-datepicker}{\texttt{ }} \href{https://travis-ci.org/Hacker0x01/react-datepicker}{\texttt{ }} \href{https://david-dm.org/Hacker0x01/react-datepicker}{\texttt{ }} \href{https://codecov.io/gh/Hacker0x01/react-datepicker}{\texttt{ }} \href{https://npmjs.org/package/react-datepicker}{\texttt{ }} \href{https://lgtm.com/projects/g/Hacker0x01/react-datepicker/context:javascript}{\texttt{ }} \href{https://lgtm.com/projects/g/Hacker0x01/react-datepicker/alerts}{\texttt{ }}
+
+A simple and reusable Datepicker component for React (\href{https://reactdatepicker.com/}{\texttt{ Demo}})
+
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md569}{}\doxysection{Installation}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md569}
+The package can be installed via \href{https://github.com/npm/cli}{\texttt{ npm}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm install react-\/datepicker -\/-\/save}
+
+\end{DoxyCode}
+
+
+Or via \href{https://github.com/yarnpkg/yarn}{\texttt{ yarn}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{yarn add react-\/datepicker}
+
+\end{DoxyCode}
+
+
+You’ll need to install React and Prop\+Types separately since those dependencies aren’t included in the package. If you need to use a locale other than the default en-\/\+US, you\textquotesingle{}ll also need to import that into your project from date-\/fns (see Localization section below). Below is a simple example of how to use the Datepicker in a React view. You will also need to require the CSS file from this package (or provide your own). The example below shows how to include the CSS from this package if your build system supports requiring CSS files (Webpack is one that does).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import React, \{ useState \} from "{}react"{};}
+\DoxyCodeLine{import DatePicker from "{}react-\/datepicker"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{import "{}react-\/datepicker/dist/react-\/datepicker.css"{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{// CSS Modules, react-\/datepicker-\/cssmodules.css}
+\DoxyCodeLine{// import 'react-\/datepicker/dist/react-\/datepicker-\/cssmodules.css';}
+\DoxyCodeLine{}
+\DoxyCodeLine{const Example = () => \{}
+\DoxyCodeLine{  const [startDate, setStartDate] = useState(new Date());}
+\DoxyCodeLine{  return (}
+\DoxyCodeLine{    <DatePicker selected=\{startDate\} onChange=\{date => setStartDate(date)\} />}
+\DoxyCodeLine{  );}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md570}{}\doxysection{Configuration}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md570}
+The most basic use of the Date\+Picker can be described with\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<DatePicker selected=\{startdate\} onChange=\{date => setStartDate(date)\} />}
+
+\end{DoxyCode}
+
+
+You can use {\ttfamily on\+Select} event handler which fires each time some calendar date has been selected
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<DatePicker}
+\DoxyCodeLine{  selected=\{date\}}
+\DoxyCodeLine{  onSelect=\{handleDateSelect\} //when day is clicked}
+\DoxyCodeLine{  onChange=\{handleDateChange\} //only when value has changed}
+\DoxyCodeLine{/>}
+
+\end{DoxyCode}
+
+
+{\ttfamily on\+Click\+Outside} handler may be useful to close datepicker in {\ttfamily inline} mode
+
+See \href{https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md}{\texttt{ here}} for a full list of props that may be passed to the component. Examples are given on the \href{https://hacker0x01.github.io/react-datepicker}{\texttt{ main website}}.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md571}{}\doxysubsection{Time picker}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md571}
+You can also include a time picker by adding the show\+Time\+Select prop
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<DatePicker}
+\DoxyCodeLine{  selected=\{date\}}
+\DoxyCodeLine{  onChange=\{handleDateChange\}}
+\DoxyCodeLine{  showTimeSelect}
+\DoxyCodeLine{  dateFormat="{}Pp"{}}
+\DoxyCodeLine{/>}
+
+\end{DoxyCode}
+
+
+Times will be displayed at 30-\/minute intervals by default (default configurable via time\+Intervals prop)
+
+More examples of how to use the time picker are given on the \href{https://hacker0x01.github.io/react-datepicker}{\texttt{ main website}}\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md572}{}\doxysubsection{Localization}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md572}
+The date picker relies on \href{https://date-fns.org/v2.0.0-alpha.18/docs/I18n}{\texttt{ date-\/fns internationalization}} to localize its display components. By default, the date picker will use the locale globally set, which is English. Provided are 3 helper methods to set the locale\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{register\+Locale}} (string, object)\+: loads an imported locale object from date-\/fns
+\item {\bfseries{set\+Default\+Locale}} (string)\+: sets a registered locale as the default for all datepicker instances
+\item {\bfseries{get\+Default\+Locale}}\+: returns a string showing the currently set default locale
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import \{ registerLocale, setDefaultLocale \} from  "{}react-\/datepicker"{};}
+\DoxyCodeLine{import es from 'date-\/fns/locale/es';}
+\DoxyCodeLine{registerLocale('es', es)}
+\DoxyCodeLine{}
+\DoxyCodeLine{<DatePicker}
+\DoxyCodeLine{  locale="{}es"{}}
+\DoxyCodeLine{/>}
+
+\end{DoxyCode}
+
+
+Locales can be changed in the following way\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Globally}} -\/ `set\+Default\+Locale(\textquotesingle{}es');\`{}
+\end{DoxyItemize}\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md573}{}\doxysection{Compatibility}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md573}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md574}{}\doxysubsection{React}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md574}
+We\textquotesingle{}re always trying to stay compatible with the latest version of React. We can\textquotesingle{}t support all older versions of React.
+
+Latest compatible versions\+:
+
+
+\begin{DoxyItemize}
+\item React 16 or newer\+: React-\/datepicker v2.\+9.\+4 and newer
+\item React 15.\+5\+: React-\/datepicker v2.\+9.\+3
+\item React 15.\+4.\+1\+: needs React-\/datepicker v0.\+40.\+0, newer won\textquotesingle{}t work (due to react-\/onclickoutside dependencies)
+\item React 0.\+14 or newer\+: All above React-\/datepicker v0.\+13.\+0
+\item React 0.\+13\+: React-\/datepicker v0.\+13.\+0
+\item pre React 0.\+13\+: React-\/datepicker v0.\+6.\+2
+\end{DoxyItemize}\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md575}{}\doxysubsection{Moment.\+js}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md575}
+Up until version 1.\+8.\+0, this package was using Moment.\+js. Starting v2.\+0.\+0, we switched to using {\ttfamily date-\/fns}, which uses native Date objects, to reduce the size of the package. If you\textquotesingle{}re switching from 1.\+8.\+0 to 2.\+0.\+0 or higher, please see the updated example above of check out the \href{https://reactdatepicker.com}{\texttt{ examples site}} for up to date examples.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md576}{}\doxysubsection{Browser Support}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md576}
+The date picker is compatible with the latest versions of Chrome, Firefox, and IE10+.
+
+Unfortunately, it is difficult to support legacy browsers while maintaining our ability to develop new features in the future. For IE9 support, it is known that the \href{https://www.npmjs.com/package/classlist-polyfill}{\texttt{ classlist polyfill}} is needed, but this may change or break at any point in the future.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md577}{}\doxysection{Local Development}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md577}
+The {\ttfamily master} branch contains the latest version of the Datepicker component.
+
+To begin local development\+:
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily yarn install}
+\item {\ttfamily yarn build-\/dev}
+\item {\ttfamily yarn start}
+\end{DoxyEnumerate}
+
+The last step starts documentation app as a simple webserver on \href{http://localhost:3000}{\texttt{ http\+://localhost\+:3000}}.
+
+You can run {\ttfamily yarn test} to execute the test suite and linters. To help you develop the component we’ve set up some tests that cover the basic functionality (can be found in {\ttfamily /tests}). Even though we’re big fans of testing, this only covers a small piece of the component. We highly recommend you add tests when you’re adding new functionality.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md578}{}\doxysubsection{The examples}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md578}
+The examples are hosted within the docs folder and are ran in the simple app that loads the Datepicker. To extend the examples with a new example, you can simply duplicate one of the existing examples and change the unique properties of your example.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md579}{}\doxysection{Accessibility}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md579}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md580}{}\doxysubsection{Keyboard support}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md580}
+
+\begin{DoxyItemize}
+\item {\itshape Left}\+: Move to the previous day.
+\item {\itshape Right}\+: Move to the next day.
+\item {\itshape Up}\+: Move to the previous week.
+\item {\itshape Down}\+: Move to the next week.
+\item {\itshape Pg\+Up}\+: Move to the previous month.
+\item {\itshape Pg\+Dn}\+: Move to the next month.
+\item {\itshape Home}\+: Move to the previous year.
+\item {\itshape End}\+: Move to the next year.
+\item {\itshape Enter/\+Esc/\+Tab}\+: close the calendar. (Enter \& Esc calls prevent\+Default)
+\end{DoxyItemize}\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md581}{}\doxysubsubsection{For month picker}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md581}
+
+\begin{DoxyItemize}
+\item {\itshape Left}\+: Move to the previous month.
+\item {\itshape Right}\+: Move to the next month.
+\item {\itshape Enter}\+: Select date and close the calendar
+\end{DoxyItemize}\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md582}{}\doxysection{License}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment4045aeb8d1ec8acef38c3aac85c3a228_autotoc_md582}
+Copyright (c) 2014-\/2021 Hacker\+One Inc. and individual contributors. Licensed under MIT license, see \mbox{[}LICENSE\mbox{]}(LICENSE) for the full license. 

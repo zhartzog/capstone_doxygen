@@ -1,0 +1,87 @@
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment25c5e6e21b6b54ce3ba7d08233251b9c_autotoc_md365}{}\doxysection{Table of Contents}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment25c5e6e21b6b54ce3ba7d08233251b9c_autotoc_md365}
+
+\begin{DoxyItemize}
+\item \href{\#introduction}{\texttt{ Introduction}}
+\item \href{\#submodules}{\texttt{ Submodules}}
+\item \href{\#installation}{\texttt{ Installation}}
+\end{DoxyItemize}\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment25c5e6e21b6b54ce3ba7d08233251b9c_autotoc_md366}{}\doxysection{Introduction}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment25c5e6e21b6b54ce3ba7d08233251b9c_autotoc_md366}
+{\bfseries{date-\/fns}} provides the most comprehensive, yet simple and consistent toolset for manipulating {\bfseries{Java\+Script dates}} in {\bfseries{a browser}} \& {\bfseries{Node.\+js}}.
+
+{\bfseries{date-\/fns}} is like \href{https://lodash.com}{\texttt{ lodash}} for dates. It has \href{https://date-fns.org/docs/}{\texttt{ {\bfseries{140+ functions}} for all occasions}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import \{ format, compareAsc \} from 'date-\/fns'}
+\DoxyCodeLine{}
+\DoxyCodeLine{format(new Date(2014, 1, 11), 'MM/dd/yyyy')}
+\DoxyCodeLine{//=> '02/11/2014'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const dates = [}
+\DoxyCodeLine{  new Date(1995, 6, 2),}
+\DoxyCodeLine{  new Date(1987, 1, 11),}
+\DoxyCodeLine{  new Date(1989, 6, 10),}
+\DoxyCodeLine{]}
+\DoxyCodeLine{dates.sort(compareAsc)}
+\DoxyCodeLine{//=> [}
+\DoxyCodeLine{//   Wed Feb 11 1987 00:00:00,}
+\DoxyCodeLine{//   Mon Jul 10 1989 00:00:00,}
+\DoxyCodeLine{//   Sun Jul 02 1995 00:00:00}
+\DoxyCodeLine{// ]}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment25c5e6e21b6b54ce3ba7d08233251b9c_autotoc_md367}{}\doxysection{Submodules}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment25c5e6e21b6b54ce3ba7d08233251b9c_autotoc_md367}
+{\bfseries{date-\/fns}} includes some optional features as submodules in the npm package. Here is the list of them, in order of nesting\+:
+
+
+\begin{DoxyItemize}
+\item FP — functional programming-\/friendly variations of the functions. See \href{https://date-fns.org/docs/FP-Guide}{\texttt{ FP Guide}};
+\item UTC (in development) — variations of the functions which calculate dates in UTC±00\+:00 timezone.
+\end{DoxyItemize}
+
+The later submodules are also included inside the former if you want to use multiple features from the list.
+
+To use submodule features, \href{\#npm}{\texttt{ install the npm package}} and then import a function from a submodule\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{// The main submodule:}
+\DoxyCodeLine{import addDays from 'date-\/fns/addDays'}
+\DoxyCodeLine{}
+\DoxyCodeLine{// FP variation:}
+\DoxyCodeLine{import addDays from 'date-\/fns/fp/addDays'}
+\DoxyCodeLine{}
+\DoxyCodeLine{// UTC variation:}
+\DoxyCodeLine{import addDays from 'date-\/fns/utc/addDays'}
+\DoxyCodeLine{}
+\DoxyCodeLine{// Both FP and UTC:}
+\DoxyCodeLine{import addDays from 'date-\/fns/fp/utc/addDays'}
+\DoxyCodeLine{}
+\DoxyCodeLine{// With tree-\/shaking enabled:}
+\DoxyCodeLine{import \{ addDays, format \} from 'date-\/fns/fp'}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment25c5e6e21b6b54ce3ba7d08233251b9c_autotoc_md368}{}\doxysection{Installation}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment25c5e6e21b6b54ce3ba7d08233251b9c_autotoc_md368}
+The library is available as an \href{https://www.npmjs.com/package/date-fns}{\texttt{ npm package}}.
+
+To install the package, run\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm install date-\/fns -\/-\/save}
+\DoxyCodeLine{\# or}
+\DoxyCodeLine{yarn add date-\/fns}
+
+\end{DoxyCode}
+
+
+Start using\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import \{ formatDistance, subDays \} from 'date-\/fns'}
+\DoxyCodeLine{}
+\DoxyCodeLine{formatDistance(subDays(new Date(), 3), new Date(), \{ addSuffix: true \})}
+\DoxyCodeLine{//=> "{}3 days ago"{}}
+
+\end{DoxyCode}
+ 

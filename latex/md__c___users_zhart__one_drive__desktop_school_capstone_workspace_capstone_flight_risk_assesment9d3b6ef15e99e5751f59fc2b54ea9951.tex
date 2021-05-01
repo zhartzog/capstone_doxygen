@@ -1,0 +1,150 @@
+Wrap a controlled react component, to allow specific prop/handler pairs to be omitted by Component consumers. Uncontrollable allows you to write React components, with minimal state, and then wrap them in a component that will manage state for prop/handlers if they are excluded.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment9d3b6ef15e99e5751f59fc2b54ea9951_autotoc_md726}{}\doxysection{Install}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment9d3b6ef15e99e5751f59fc2b54ea9951_autotoc_md726}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm i -\/S uncontrollable}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment9d3b6ef15e99e5751f59fc2b54ea9951_autotoc_md727}{}\doxysubsection{Usage}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment9d3b6ef15e99e5751f59fc2b54ea9951_autotoc_md727}
+If you are a bit unsure on the {\itshape why} of this module read the next section first. If you just want to see some real-\/world examples, check out \href{https://github.com/jquense/react-widgets}{\texttt{ React Widgets}} which makes \href{https://github.com/jquense/react-widgets/blob/5d1b530cb094cdc72f577fe01abe4a02dd265400/src/Multiselect.jsx\#L521}{\texttt{ heavy use of this strategy}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import \{ uncontrollable \} from 'uncontrollable'}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment9d3b6ef15e99e5751f59fc2b54ea9951_autotoc_md728}{}\doxysubsection{API}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment9d3b6ef15e99e5751f59fc2b54ea9951_autotoc_md728}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment9d3b6ef15e99e5751f59fc2b54ea9951_autotoc_md729}{}\doxysubsubsection{$<$tt$>$uncontrollable(\+Component, prop\+Handler\+Hash, \mbox{[}methods\mbox{]})$<$/tt$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment9d3b6ef15e99e5751f59fc2b54ea9951_autotoc_md729}
+
+\begin{DoxyItemize}
+\item {\ttfamily Component}\+: is a valid react component, such as the result of {\ttfamily create\+Class}
+\item {\ttfamily prop\+Handler\+Hash}\+: define the pairs of prop/handlers you want to be uncontrollable, e.\+g. `\{ value\+: \textquotesingle{}on\+Change'\}{\ttfamily  -\/}methods\`{}\+: since uncontrollable wraps your component in another component, methods are not immediately accessible. You can proxy them through by providing the names of the methods you want to continue to expose. {\bfseries{You don\textquotesingle{}t need this if you are using React $>$= v16.\+3.\+0, the ref will automatically be forwarded to the uinderlying component}}
+\end{DoxyItemize}
+
+For every prop you indicate as uncontrollable, the returned component will also accept an initial, {\ttfamily default} value for that prop. For example, {\ttfamily open} can be left uncontrolled but the initial value can be set via {\ttfamily default\+Open=\{true\}} if we want it to start open.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import \{ uncontrollable \} from 'uncontrollable'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const UncontrolledCombobox = uncontrollable(Combobox, \{}
+\DoxyCodeLine{  value: 'onChange',}
+\DoxyCodeLine{  open: 'onToggle',}
+\DoxyCodeLine{  searchTerm: 'onSearch', //the current typed value (maybe it filters the dropdown list)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+
+
+Since uncontrollable creates a new component that wraps your existing one, methods on your underlying component won\textquotesingle{}t be immediately accessible. In general this sort of access is not idiomatic React, but it does have its place. The third argument of {\ttfamily uncontrollable()} is an optional array of method names you want uncontrollable to \char`\"{}pass through\char`\"{} to the original component.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{let UncontrolledForm = uncontrollable(Form, \{ value: 'onChange' \}, ['submit'])}
+\DoxyCodeLine{}
+\DoxyCodeLine{//when you use a ref this will work}
+\DoxyCodeLine{this.refs.myForm.submit()}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment9d3b6ef15e99e5751f59fc2b54ea9951_autotoc_md730}{}\doxysubsubsection{$<$tt$>$use\+Uncontrolled(props, props\+Handler\+Hash) =$>$ controlled\+Props$<$/tt$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment9d3b6ef15e99e5751f59fc2b54ea9951_autotoc_md730}
+A React hook that can be used in place of the above Higher order Component. It returns a complete set of {\ttfamily props} which are safe to spread through to a child element.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import \{ useUncontrolled \} from 'uncontrollable'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const UncontrolledCombobox = props => \{}
+\DoxyCodeLine{  // filters out defaultValue, defaultOpen and returns controlled}
+\DoxyCodeLine{  // versions of onChange, and onToggle.}
+\DoxyCodeLine{  const controlledProps = useUncontrolled(props, \{}
+\DoxyCodeLine{    value: 'onChange',}
+\DoxyCodeLine{    open: 'onToggle',}
+\DoxyCodeLine{  \})}
+\DoxyCodeLine{}
+\DoxyCodeLine{  return <Checkbox \{...controlledProps\} />}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment9d3b6ef15e99e5751f59fc2b54ea9951_autotoc_md731}{}\doxysubsection{Use Case}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment9d3b6ef15e99e5751f59fc2b54ea9951_autotoc_md731}
+One of the strengths of React is its extensibility model, enabled by a common practice of pushing component state as high up the tree as possible. While great for enabling extremely flexible and easy to reason about components, this can produce a lot of boilerplate to wire components up with every use. For simple components (like an input) this is usually a matter of tying the input {\ttfamily value} prop to a parent state property via its {\ttfamily on\+Change} handler. Here is an extremely common pattern\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{render() \{}
+\DoxyCodeLine{  return (}
+\DoxyCodeLine{    <input type='text'}
+\DoxyCodeLine{      value=\{this.state.value\}}
+\DoxyCodeLine{      onChange=\{ e => this.setState(\{ value: e.target.value \})\}}
+\DoxyCodeLine{    />}
+\DoxyCodeLine{  )}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+This pattern moves the responsibility of managing the {\ttfamily value} from the input to its parent and mimics \char`\"{}two-\/way\char`\"{} databinding. Sometimes, however, there is no need for the parent to manage the input\textquotesingle{}s state directly. In that case, all we want to do is set the initial {\ttfamily value} of the input and let the input manage it from then on. React deals with this through \char`\"{}uncontrolled\char`\"{} inputs, where if you don\textquotesingle{}t indicate that you want to control the state of the input externally via a {\ttfamily value} prop it will just do the book-\/keeping for you.
+
+This is a great pattern which we can make use of in our own Components. It is often best to build each component to be as stateless as possible, assuming that the parent will want to control everything that makes sense. Take a simple Dropdown component as an example
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{class SimpleDropdown extends React.Component \{}
+\DoxyCodeLine{  static propTypes = \{}
+\DoxyCodeLine{    value: React.PropTypes.string,}
+\DoxyCodeLine{    onChange: React.PropTypes.func,}
+\DoxyCodeLine{    open: React.PropTypes.bool,}
+\DoxyCodeLine{    onToggle: React.PropTypes.func,}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  render() \{}
+\DoxyCodeLine{    return (}
+\DoxyCodeLine{      <div>}
+\DoxyCodeLine{        <input}
+\DoxyCodeLine{          value=\{this.props.value\}}
+\DoxyCodeLine{          onChange=\{e => this.props.onChange(e.target.value)\}}
+\DoxyCodeLine{        />}
+\DoxyCodeLine{        <button onClick=\{e => this.props.onToggle(!this.props.open)\}>}
+\DoxyCodeLine{          open}
+\DoxyCodeLine{        </button>}
+\DoxyCodeLine{        \{this.props.open \&\& (}
+\DoxyCodeLine{          <ul className="{}open"{}>}
+\DoxyCodeLine{            <li>option 1</li>}
+\DoxyCodeLine{            <li>option 2</li>}
+\DoxyCodeLine{          </ul>}
+\DoxyCodeLine{        )\}}
+\DoxyCodeLine{      </div>}
+\DoxyCodeLine{    )}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Notice how we don\textquotesingle{}t track any state in our simple dropdown? This is great because a consumer of our module will have the all the flexibility to decide what the behavior of the dropdown should be. Also notice our public API (prop\+Types), it consists of common pattern\+: a property we want set ({\ttfamily value}, {\ttfamily open}), and a set of handlers that indicate {\itshape when} we want them set ({\ttfamily on\+Change}, {\ttfamily on\+Toggle}). It is up to the parent component to change the {\ttfamily value} and {\ttfamily open} props in response to the handlers.
+
+While this pattern offers an excellent amount of flexibility to consumers, it also requires them to write a bunch of boilerplate code that probably won\textquotesingle{}t change much from use to use. In all likelihood they will always want to set {\ttfamily open} in response to {\ttfamily on\+Toggle}, and only in rare cases will want to override that behavior. This is where the controlled/uncontrolled pattern comes in.
+
+We want to just handle the open/on\+Toggle case ourselves if the consumer doesn\textquotesingle{}t provide a {\ttfamily open} prop (indicating that they want to control it). Rather than complicating our dropdown component with all that logic, obscuring the business logic of our dropdown, we can add it later, by taking our dropdown and wrapping it inside another component that handles that for us.
+
+{\ttfamily uncontrollable} allows you separate out the logic necessary to create controlled/uncontrolled inputs letting you focus on creating a completely controlled input and wrapping it later. This tends to be a lot simpler to reason about as well.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import \{ uncontrollable \} from 'uncontrollable';}
+\DoxyCodeLine{}
+\DoxyCodeLine{const UncontrollableDropdown = uncontrollable(SimpleDropdown, \{}
+\DoxyCodeLine{  value: 'onChange',}
+\DoxyCodeLine{  open: 'onToggle'}
+\DoxyCodeLine{\})}
+\DoxyCodeLine{}
+\DoxyCodeLine{<UncontrollableDropdown}
+\DoxyCodeLine{  value=\{this.state.val\} // we can still control these props if we want}
+\DoxyCodeLine{  onChange=\{val => this.setState(\{ val \})\}}
+\DoxyCodeLine{  defaultOpen=\{true\} /> // or just let the UncontrollableDropdown handle it}
+\DoxyCodeLine{                        // and we just set an initial value (or leave it out completely)!}
+
+\end{DoxyCode}
+
+
+Now we don\textquotesingle{}t need to worry about the open on\+Toggle! The returned component will track {\ttfamily open} for us by assuming that it should just set {\ttfamily open} to whatever {\ttfamily on\+Toggle} returns. If we {\itshape do} want to worry about it we can just provide {\ttfamily open} and {\ttfamily on\+Toggle} props and the uncontrolled input will just pass them through.
+
+The above is a contrived example but it allows you to wrap even more complex Components, giving you a lot of flexibility in the API you can offer a consumer of your Component. For every pair of prop/handlers you also get a default\+Prop of the form \char`\"{}default\mbox{[}\+Prop\+Name\mbox{]}\char`\"{} so {\ttfamily value} -\/$>$ {\ttfamily default\+Value}, and {\ttfamily open} -\/$>$ {\ttfamily default\+Open}, etc. \href{https://github.com/jquense/react-widgets}{\texttt{ React Widgets}} makes heavy use of this strategy, you can see it in action here\+: \href{https://github.com/jquense/react-widgets/blob/5d1b530cb094cdc72f577fe01abe4a02dd265400/src/Multiselect.jsx\#L521}{\texttt{ https\+://github.\+com/jquense/react-\/widgets/blob/5d1b530cb094cdc72f577fe01abe4a02dd265400/src/\+Multiselect.\+jsx\#\+L521}} 

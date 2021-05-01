@@ -1,0 +1,201 @@
+\hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository}{}\doxysection{edu.\+unomaha.\+flightriskassessment.\+database.\+Admin\+Table\+Repository Class Reference}
+\label{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository}\index{edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a9a84ca31c1f315722f32e4d50a763612}{Admin\+Table\+Repository}} ()
+\item 
+void \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a21a9df369c8a14302ce4a7f83596e861}{save}} (\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}} to\+Save)
+\item 
+Array\+List$<$ \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}} $>$ \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a6ba821d4a10bd4d045574cb235ce47a6}{get\+All}} ()
+\item 
+\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}} \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_ae4b8bd7e12a484c25ba3873f40d036db}{get\+By\+ID}} (int id)
+\item 
+\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}} \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_afd5ce9eff7b3a5e245ce66d8f7c6d5e8}{get\+By\+Group\+Name\+Category}} (String group, String name, String category)
+\item 
+void \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_af894bc625ea7b51204c997e73b82215c}{update\+By\+Id}} (int id, \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}} to\+Set)
+\item 
+void \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a18810a757c551984df83504dabe98fbd}{update\+By\+Group\+Name\+Category}} (String group, String name, String category, \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}} to\+Set)
+\item 
+void \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a5f49b1436d3570a2dc4c65f35d5f6689}{delete\+By\+Id}} (int id)
+\item 
+void \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_afa7e9b1cfdb8db46a063ddfce926af1e}{delete\+By\+Group\+Name\+Category}} (String group, String name, String category)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a6a772b4ea07f0b800ffabd8c497916ee}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a6a772b4ea07f0b800ffabd8c497916ee}} 
+String {\bfseries url} = \char`\"{}jdbc\+:mysql\+://ec2-\/3-\/139-\/100-\/26.us-\/east-\/2.compute.\+amazonaws.\+com/Risk\+Assessment\+Form\char`\"{}
+\item 
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_ae8cec3a4ff2e77f9ddc59d4e5ce5b967}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_ae8cec3a4ff2e77f9ddc59d4e5ce5b967}} 
+String {\bfseries user} = \char`\"{}root\char`\"{}
+\item 
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a07001e2007cfb48ee9f69a121f075359}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a07001e2007cfb48ee9f69a121f075359}} 
+String {\bfseries pass} = \char`\"{}rootpass\char`\"{}
+\item 
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_acf82864bbb23468c100da5d0073647ec}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_acf82864bbb23468c100da5d0073647ec}} 
+Connection {\bfseries connection}
+\item 
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a12927f557b6b97f2a876c5e2a552a617}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a12927f557b6b97f2a876c5e2a552a617}} 
+Statement {\bfseries statement}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a9a84ca31c1f315722f32e4d50a763612}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a9a84ca31c1f315722f32e4d50a763612}} 
+\index{edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}!AdminTableRepository@{AdminTableRepository}}
+\index{AdminTableRepository@{AdminTableRepository}!edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}}
+\doxysubsubsection{\texorpdfstring{AdminTableRepository()}{AdminTableRepository()}}
+{\footnotesize\ttfamily edu.\+unomaha.\+flightriskassessment.\+database.\+Admin\+Table\+Repository.\+Admin\+Table\+Repository (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructor for the repository 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_afa7e9b1cfdb8db46a063ddfce926af1e}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_afa7e9b1cfdb8db46a063ddfce926af1e}} 
+\index{edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}!deleteByGroupNameCategory@{deleteByGroupNameCategory}}
+\index{deleteByGroupNameCategory@{deleteByGroupNameCategory}!edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}}
+\doxysubsubsection{\texorpdfstring{deleteByGroupNameCategory()}{deleteByGroupNameCategory()}}
+{\footnotesize\ttfamily void edu.\+unomaha.\+flightriskassessment.\+database.\+Admin\+Table\+Repository.\+delete\+By\+Group\+Name\+Category (\begin{DoxyParamCaption}\item[{String}]{group,  }\item[{String}]{name,  }\item[{String}]{category }\end{DoxyParamCaption})}
+
+Deletes a threshold by the group, name, and category values 
+\begin{DoxyParams}{Parameters}
+{\em group} & -\/ The group of the row to be deleted \\
+\hline
+{\em name} & -\/ The name of the row to be deleted \\
+\hline
+{\em category} & -\/ The category of the row to be deleted \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a5f49b1436d3570a2dc4c65f35d5f6689}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a5f49b1436d3570a2dc4c65f35d5f6689}} 
+\index{edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}!deleteById@{deleteById}}
+\index{deleteById@{deleteById}!edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}}
+\doxysubsubsection{\texorpdfstring{deleteById()}{deleteById()}}
+{\footnotesize\ttfamily void edu.\+unomaha.\+flightriskassessment.\+database.\+Admin\+Table\+Repository.\+delete\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+Deletes a threshold by ID value 
+\begin{DoxyParams}{Parameters}
+{\em id} & -\/ the admin threshold ID for the threshold to be deleted \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em SQLException} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a6ba821d4a10bd4d045574cb235ce47a6}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a6ba821d4a10bd4d045574cb235ce47a6}} 
+\index{edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}!getAll@{getAll}}
+\index{getAll@{getAll}!edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}}
+\doxysubsubsection{\texorpdfstring{getAll()}{getAll()}}
+{\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}}$>$ edu.\+unomaha.\+flightriskassessment.\+database.\+Admin\+Table\+Repository.\+get\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the full list of all thresholds in the database \begin{DoxyReturn}{Returns}
+-\/ The full list of all thresholds in the database 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em SQLException} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_afd5ce9eff7b3a5e245ce66d8f7c6d5e8}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_afd5ce9eff7b3a5e245ce66d8f7c6d5e8}} 
+\index{edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}!getByGroupNameCategory@{getByGroupNameCategory}}
+\index{getByGroupNameCategory@{getByGroupNameCategory}!edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}}
+\doxysubsubsection{\texorpdfstring{getByGroupNameCategory()}{getByGroupNameCategory()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}} edu.\+unomaha.\+flightriskassessment.\+database.\+Admin\+Table\+Repository.\+get\+By\+Group\+Name\+Category (\begin{DoxyParamCaption}\item[{String}]{group,  }\item[{String}]{name,  }\item[{String}]{category }\end{DoxyParamCaption})}
+
+Gets a threshold by its group, name, and category 
+\begin{DoxyParams}{Parameters}
+{\em group} & -\/ The group of the threshold \\
+\hline
+{\em name} & -\/ The name of the threshold \\
+\hline
+{\em category} & -\/ The category of the threshold \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ The specific threshold to be gotten 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em SQLException} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_ae4b8bd7e12a484c25ba3873f40d036db}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_ae4b8bd7e12a484c25ba3873f40d036db}} 
+\index{edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}!getByID@{getByID}}
+\index{getByID@{getByID}!edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}}
+\doxysubsubsection{\texorpdfstring{getByID()}{getByID()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}} edu.\+unomaha.\+flightriskassessment.\+database.\+Admin\+Table\+Repository.\+get\+By\+ID (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+Returns a result set of the admin\+Threshold related to the ID passed 
+\begin{DoxyParams}{Parameters}
+{\em id} & -\/ the ID of the admin\+Threshold to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ the admin\+Threshold whose ID was passed 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em SQLException} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a21a9df369c8a14302ce4a7f83596e861}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a21a9df369c8a14302ce4a7f83596e861}} 
+\index{edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}!save@{save}}
+\index{save@{save}!edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void edu.\+unomaha.\+flightriskassessment.\+database.\+Admin\+Table\+Repository.\+save (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}}}]{to\+Save }\end{DoxyParamCaption})}
+
+Saves a new threshold to the table 
+\begin{DoxyParams}{Parameters}
+{\em to\+Save} & -\/ The threshold to save \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em SQLException} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a18810a757c551984df83504dabe98fbd}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_a18810a757c551984df83504dabe98fbd}} 
+\index{edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}!updateByGroupNameCategory@{updateByGroupNameCategory}}
+\index{updateByGroupNameCategory@{updateByGroupNameCategory}!edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}}
+\doxysubsubsection{\texorpdfstring{updateByGroupNameCategory()}{updateByGroupNameCategory()}}
+{\footnotesize\ttfamily void edu.\+unomaha.\+flightriskassessment.\+database.\+Admin\+Table\+Repository.\+update\+By\+Group\+Name\+Category (\begin{DoxyParamCaption}\item[{String}]{group,  }\item[{String}]{name,  }\item[{String}]{category,  }\item[{\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}}}]{to\+Set }\end{DoxyParamCaption})}
+
+Updates a threshold by its group, name, and category 
+\begin{DoxyParams}{Parameters}
+{\em group} & -\/ the group to search for \\
+\hline
+{\em name} & -\/ the name to search for \\
+\hline
+{\em category} & -\/ the category to search for \\
+\hline
+{\em to\+Set} & -\/ The admin\+Threshold object to update the threshold with \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em SQLException} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_af894bc625ea7b51204c997e73b82215c}\label{classedu_1_1unomaha_1_1flightriskassessment_1_1database_1_1_admin_table_repository_af894bc625ea7b51204c997e73b82215c}} 
+\index{edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}!updateById@{updateById}}
+\index{updateById@{updateById}!edu.unomaha.flightriskassessment.database.AdminTableRepository@{edu.unomaha.flightriskassessment.database.AdminTableRepository}}
+\doxysubsubsection{\texorpdfstring{updateById()}{updateById()}}
+{\footnotesize\ttfamily void edu.\+unomaha.\+flightriskassessment.\+database.\+Admin\+Table\+Repository.\+update\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{\hyperlink{classedu_1_1unomaha_1_1flightriskassessment_1_1models_1_1_admin_table}{Admin\+Table}}}]{to\+Set }\end{DoxyParamCaption})}
+
+Updates a threshold by ID 
+\begin{DoxyParams}{Parameters}
+{\em id} & -\/ the ID of the threshold to update \\
+\hline
+{\em to\+Set} & -\/ the updated values of the threshold to be set \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em SQLException} & \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/zhart/\+One\+Drive/\+Desktop/school/capstone/workspace/capstone-\/flight-\/risk-\/assesment/src/main/java/edu/unomaha/flightriskassessment/database/Admin\+Table\+Repository.\+java\end{DoxyCompactItemize}

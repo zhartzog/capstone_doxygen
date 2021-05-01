@@ -1,0 +1,43 @@
+date-\/fns provides with a number of useful constants.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment7e284b131852ae63f472fedacc423bc5_autotoc_md355}{}\doxysection{Usage}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment7e284b131852ae63f472fedacc423bc5_autotoc_md355}
+The constants could be imported from {\ttfamily date-\/fns/constants} or directly from {\ttfamily date-\/fns}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import \{ maxTime \} from 'date-\/fns/constants'}
+\DoxyCodeLine{import \{ minTime \} from 'date-\/fns'}
+\DoxyCodeLine{}
+\DoxyCodeLine{function isAllowedTime(time) \{}
+\DoxyCodeLine{  return time <= maxTime \&\& time >= minTime}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment7e284b131852ae63f472fedacc423bc5_autotoc_md356}{}\doxysection{Constants}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment7e284b131852ae63f472fedacc423bc5_autotoc_md356}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment7e284b131852ae63f472fedacc423bc5_autotoc_md357}{}\doxysubsection{$<$tt$>$max\+Time$<$/tt$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment7e284b131852ae63f472fedacc423bc5_autotoc_md357}
+Maximum allowed time\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import \{ maxTime \} from 'date-\/fns'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const isValid = 8640000000000001 <= maxTime}
+\DoxyCodeLine{//=> false}
+\DoxyCodeLine{}
+\DoxyCodeLine{new Date(8640000000000001)}
+\DoxyCodeLine{//=> Invalid Date}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment7e284b131852ae63f472fedacc423bc5_autotoc_md358}{}\doxysubsection{$<$tt$>$min\+Time$<$/tt$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesment7e284b131852ae63f472fedacc423bc5_autotoc_md358}
+Minimum allowed time\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import \{ minTime \} from 'date-\/fns'}
+\DoxyCodeLine{}
+\DoxyCodeLine{const isValid = -\/8640000000000001 >= minTime}
+\DoxyCodeLine{//=> false}
+\DoxyCodeLine{}
+\DoxyCodeLine{new Date(-\/8640000000000001)}
+\DoxyCodeLine{//=> Invalid Date}
+
+\end{DoxyCode}
+ 

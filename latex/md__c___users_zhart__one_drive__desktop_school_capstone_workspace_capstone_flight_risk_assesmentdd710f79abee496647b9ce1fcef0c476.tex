@@ -1,0 +1,244 @@
+\href{https://travis-ci.org/FezVrasta/react-popper}{\texttt{ }} \href{https://www.npmjs.com/package/react-popper}{\texttt{ }} \href{https://www.npmjs.com/package/react-popper}{\texttt{ }} \href{https://david-dm.org/souporserious/react-popper}{\texttt{ }} \href{https://github.com/prettier/prettier}{\texttt{ }} \href{https://spectrum.chat/popper-js/react-popper}{\texttt{ }}
+
+React wrapper around \href{https://popper.js.org}{\texttt{ Popper.\+js}}.
+
+{\bfseries{important note\+:}} popper.\+js is {\bfseries{not}} a tooltip library, it\textquotesingle{}s a {\itshape positioning engine} to be used to build features such as (but not restricted to) tooltips.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md664}{}\doxysection{Install}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md664}
+Via package managers\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{npm install react-\/popper -\/-\/save}
+\DoxyCodeLine{\# or}
+\DoxyCodeLine{yarn add react-\/popper}
+
+\end{DoxyCode}
+
+
+Via {\ttfamily script} tag (UMD library exposed as {\ttfamily React\+Popper})\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<script src="{}https://unpkg.com/react-\/popper/dist/index.umd.js"{}></script>}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md665}{}\doxysection{Usage}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md665}
+\begin{quote}
+Using {\ttfamily react-\/popper@0.\+x}? You can find its documentation \href{https://github.com/souporserious/react-popper/tree/v0.x}{\texttt{ clicking here}} \end{quote}
+Example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import \{ Manager, Reference, Popper \} from 'react-\/popper';}
+\DoxyCodeLine{}
+\DoxyCodeLine{const Example = () => (}
+\DoxyCodeLine{  <Manager>}
+\DoxyCodeLine{    <Reference>}
+\DoxyCodeLine{      \{(\{ ref \}) => (}
+\DoxyCodeLine{        <button type="{}button"{} ref=\{ref\}>}
+\DoxyCodeLine{          Reference element}
+\DoxyCodeLine{        </button>}
+\DoxyCodeLine{      )\}}
+\DoxyCodeLine{    </Reference>}
+\DoxyCodeLine{    <Popper placement="{}right"{}>}
+\DoxyCodeLine{      \{(\{ ref, style, placement, arrowProps \}) => (}
+\DoxyCodeLine{        <div ref=\{ref\} style=\{style\} data-\/placement=\{placement\}>}
+\DoxyCodeLine{          Popper element}
+\DoxyCodeLine{          <div ref=\{arrowProps.ref\} style=\{arrowProps.style\} />}
+\DoxyCodeLine{        </div>}
+\DoxyCodeLine{      )\}}
+\DoxyCodeLine{    </Popper>}
+\DoxyCodeLine{  </Manager>}
+\DoxyCodeLine{);}
+
+\end{DoxyCode}
+
+
+{\ttfamily react-\/popper} makes use of a React pattern called $\ast$$\ast$\char`\"{}render prop\char`\"{}$\ast$$\ast$, if you are not familiar with it, please read more \href{https://reactjs.org/docs/render-props.html}{\texttt{ on the official React documentation}}.
+
+\begin{quote}
+Using React $<$=15 or Preact? The components created with them don\textquotesingle{}t support to return \href{https://reactjs.org/docs/fragments.html}{\texttt{ fragments}}, this means that you will need to wrap {\ttfamily $<$Reference /$>$} and {\ttfamily $<$Popper /$>$} into a single, common, {\ttfamily $<$div /$>$} to make {\ttfamily react-\/popper} work. \end{quote}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md666}{}\doxysubsection{API documentation}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md666}
+The {\ttfamily Manager} component is a simple wrapper that needs to surround all the other {\ttfamily react-\/popper} components in order to make them communicate with each others.
+
+The {\ttfamily Popper} component accepts the properties {\ttfamily children}, {\ttfamily placement}, {\ttfamily modifiers}, {\ttfamily events\+Enabled} and {\ttfamily position\+Fixed}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<Popper}
+\DoxyCodeLine{  innerRef=\{(node) => this.popperNode = node\}}
+\DoxyCodeLine{  placement="{}right"{}}
+\DoxyCodeLine{  modifiers=\{\{ preventOverflow: \{ enabled: false \} \}\}}
+\DoxyCodeLine{  eventsEnabled=\{true\}}
+\DoxyCodeLine{  positionFixed=\{false\}}
+\DoxyCodeLine{>}
+\DoxyCodeLine{    \{ props => [...] \}}
+\DoxyCodeLine{</Popper>}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md667}{}\doxyparagraph{$<$tt$>$children$<$/tt$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md667}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{children: (\{|}
+\DoxyCodeLine{  ref: (?HTMLElement) => void,}
+\DoxyCodeLine{  style: \{ [string]: string | number \},}
+\DoxyCodeLine{  placement: ?Placement,}
+\DoxyCodeLine{  outOfBoundaries: ?boolean,}
+\DoxyCodeLine{  scheduleUpdate: () => void,}
+\DoxyCodeLine{  arrowProps: \{}
+\DoxyCodeLine{    ref: (?HTMLElement) => void,}
+\DoxyCodeLine{    style: \{ [string]: string | number \},}
+\DoxyCodeLine{  \},}
+\DoxyCodeLine{|\}) => Node}
+
+\end{DoxyCode}
+
+
+A function (render prop) that takes as argument an object containing the following properties\+:
+
+
+\begin{DoxyItemize}
+\item $\ast$$\ast${\ttfamily ref}$\ast$$\ast$\+: used to retrieve the \href{https://reactjs.org/docs/refs-and-the-dom.html}{\texttt{ React refs}} of the {\bfseries{popper}} element.
+\item $\ast$$\ast${\ttfamily style}$\ast$$\ast$\+: contains the necessary CSS styles (React CSS properties) which are computed by Popper.\+js to correctly position the {\bfseries{popper}} element.
+\item $\ast$$\ast${\ttfamily placement}$\ast$$\ast$\+: describes the placement of your popper after Popper.\+js has applied all the modifiers that may have flipped or altered the originally provided {\ttfamily placement} property. You can use this to alter the style of the popper and or of the arrow according to the definitive placement. For instance, you can use this property to orient the arrow to the right direction.
+\item $\ast$$\ast${\ttfamily out\+Of\+Boundaries}$\ast$$\ast$\+: a boolean signifying if the popper element is overflowing its boundaries.
+\item $\ast$$\ast${\ttfamily schedule\+Update}$\ast$$\ast$\+: a function you can call to schedule a Popper.\+js position update. It will directly call the \href{https://popper.js.org/popper-documentation.html\#Popper.scheduleUpdate}{\texttt{ Popper\+::schedule\+Update}} method.
+\item $\ast$$\ast${\ttfamily arrow\+Props}$\ast$$\ast$\+: an object, containing {\ttfamily style} and {\ttfamily ref} properties that are identical to the ones provided as the first and second arguments of {\ttfamily children}, but relative to the {\bfseries{arrow}} element. The {\ttfamily style} property contains {\ttfamily left} and {\ttfamily top} offset values, which are used to center the arrow within the popper. These values can be merged with further custom styling and positioning. See \href{https://github.com/FezVrasta/react-popper/blob/8994933c430e48ab62e71495be71e4f440b48a5a/demo/styles.js\#L100}{\texttt{ the demo}} for an example.
+\end{DoxyItemize}\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md668}{}\doxyparagraph{$<$tt$>$inner\+Ref$<$/tt$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md668}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{innerRef?: (?HTMLElement) => void}
+
+\end{DoxyCode}
+
+
+Function that can be used to obtain popper reference\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md669}{}\doxyparagraph{$<$tt$>$placement$<$/tt$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md669}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{placement?: PopperJS\$Placement;}
+
+\end{DoxyCode}
+
+
+One of the accepted placement values listed in the \href{https://popper.js.org/popper-documentation.html\#Popper.placements}{\texttt{ Popper.\+js documentation}}. ~\newline
+ Your popper is going to be placed according to the value of this property. ~\newline
+ Defaults to {\ttfamily bottom}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{outOfBoundaries: ?boolean;}
+
+\end{DoxyCode}
+
+
+A boolean that can be used to hide the popper element in case it\textquotesingle{}s overflowing from its boundaries. \href{https://popper.js.org/popper-documentation.html\#modifiers..hide}{\texttt{ Read more}}.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md670}{}\doxyparagraph{$<$tt$>$events\+Enabled$<$/tt$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md670}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{eventsEnabled?: boolean;}
+
+\end{DoxyCode}
+
+
+Tells {\ttfamily react-\/popper} to enable or disable the \href{https://popper.js.org/popper-documentation.html\#Popper.Defaults.eventsEnabled}{\texttt{ Popper.\+js event listeners}}. {\ttfamily true} by default.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md671}{}\doxyparagraph{$<$tt$>$position\+Fixed$<$/tt$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md671}
+Set this property to {\ttfamily true} to tell Popper.\+js to use the {\ttfamily position\+: fixed} strategy to position the popper element. By default it\textquotesingle{}s false, meaning that it will use the {\ttfamily position\+: absolute} strategy.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md672}{}\doxyparagraph{$<$tt$>$modifiers$<$/tt$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md672}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{modifiers?: PopperJS\$Modifiers;}
+
+\end{DoxyCode}
+
+
+An object containing custom settings for the \href{https://popper.js.org/popper-documentation.html\#modifiers}{\texttt{ Popper.\+js modifiers}}. ~\newline
+ You can use this property to override their settings or to inject your custom ones.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md673}{}\doxysection{Usage with $<$tt$>$\+React\+DOM.\+create\+Portal$<$/tt$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md673}
+Popper.\+js is smart enough to work even if the {\bfseries{popper}} and {\bfseries{reference}} elements aren\textquotesingle{}t in the same DOM context. ~\newline
+ This means that you can use \href{https://reactjs.org/docs/portals.html}{\texttt{ {\ttfamily React\+DOM.\+create\+Portal}}} (or any pre React 16 alternative) to move the popper component somewhere else in the DOM.
+
+This can be useful if you want to position a tooltip inside an {\ttfamily overflow\+: hidden} container that you want to make overflow. Please note that you can also try the {\ttfamily position\+Fixed} strategy to obtain a similar effect with less hassle.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import \{ Manager, Reference, Popper \} from 'react-\/popper';}
+\DoxyCodeLine{}
+\DoxyCodeLine{const Example = () => (}
+\DoxyCodeLine{  <Manager>}
+\DoxyCodeLine{    <Reference>}
+\DoxyCodeLine{      \{(\{ ref \}) => (}
+\DoxyCodeLine{        <button type="{}button"{} ref=\{ref\}>}
+\DoxyCodeLine{          Reference}
+\DoxyCodeLine{        </button>}
+\DoxyCodeLine{      )\}}
+\DoxyCodeLine{    </Reference>}
+\DoxyCodeLine{    \{ReactDOM.createPortal(}
+\DoxyCodeLine{      <Popper>}
+\DoxyCodeLine{        \{(\{ placement, ref, style \}) => (}
+\DoxyCodeLine{          <div ref=\{ref\} style=\{style\} data-\/placement=\{placement\}>}
+\DoxyCodeLine{            Popper}
+\DoxyCodeLine{          </div>}
+\DoxyCodeLine{        )\}}
+\DoxyCodeLine{      </Popper>,}
+\DoxyCodeLine{      document.querySelector('\#destination')}
+\DoxyCodeLine{    )\}}
+\DoxyCodeLine{  </Manager>}
+\DoxyCodeLine{);}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md674}{}\doxysection{Usage without a reference $<$tt$>$\+HTMLElement$<$/tt$>$}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md674}
+Whenever you need to position a popper based on some arbitrary coordinates, you can provide {\ttfamily Popper} with a {\ttfamily reference\+Element} property that is going to be used in place of the {\ttfamily reference\+Props.\+get\+Ref} React ref.
+
+The {\ttfamily reference\+Element} property must be an object with an interface compatible with an {\ttfamily HTMLElement} as described in the \href{https://popper.js.org/popper-documentation.html\#referenceObject}{\texttt{ Popper.\+js reference\+Object documentation}}, this implies that you may also provide a real HTMLElement if needed.
+
+If {\ttfamily reference\+Element} is defined, it will take precedence over any {\ttfamily reference\+Props.\+ref} provided refs.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{import \{ Popper \} from 'react-\/popper';}
+\DoxyCodeLine{}
+\DoxyCodeLine{class VirtualReference \{}
+\DoxyCodeLine{  getBoundingClientRect() \{}
+\DoxyCodeLine{    return \{}
+\DoxyCodeLine{      top: 10,}
+\DoxyCodeLine{      left: 10,}
+\DoxyCodeLine{      bottom: 20,}
+\DoxyCodeLine{      right: 100,}
+\DoxyCodeLine{      width: 90,}
+\DoxyCodeLine{      height: 10,}
+\DoxyCodeLine{    \};}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  get clientWidth() \{}
+\DoxyCodeLine{    return this.getBoundingClientRect().width;}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{  get clientHeight() \{}
+\DoxyCodeLine{    return this.getBoundingClientRect().height;}
+\DoxyCodeLine{  \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{// This is going to create a virtual reference element}
+\DoxyCodeLine{// positioned 10px from top and left of the document}
+\DoxyCodeLine{// 90px wide and 10px high}
+\DoxyCodeLine{const virtualReferenceElement = new VirtualReference();}
+\DoxyCodeLine{}
+\DoxyCodeLine{// This popper will be positioned relatively to the}
+\DoxyCodeLine{// virtual reference element defined above}
+\DoxyCodeLine{const Example = () => (}
+\DoxyCodeLine{  <Popper referenceElement=\{virtualReferenceElement\}>}
+\DoxyCodeLine{    \{(\{ ref, style, placement, arrowProps \}) => (}
+\DoxyCodeLine{      <div ref=\{ref\} style=\{style\} data-\/placement=\{placement\}>}
+\DoxyCodeLine{        Popper element}
+\DoxyCodeLine{        <div ref=\{arrowProps.ref\} style=\{arrowProps.style\} />}
+\DoxyCodeLine{      </div>}
+\DoxyCodeLine{    )\}}
+\DoxyCodeLine{  </Popper>}
+\DoxyCodeLine{);}
+
+\end{DoxyCode}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md675}{}\doxysection{Flow and Type\+Script types}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md675}
+This library is built with Flow but it supports Type\+Script as well.
+
+You can find the exported Flow types in {\ttfamily src/index.\+js}, and the Type\+Script definitions in {\ttfamily typings/react-\/popper.\+d.\+ts}.\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md676}{}\doxysection{Running Locally}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md676}
+\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md677}{}\doxysubsubsection{clone repo}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md677}
+{\ttfamily git clone git@github.\+com\+:Fez\+Vrasta/react-\/popper.\+git}\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md678}{}\doxysubsubsection{move into folder}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md678}
+{\ttfamily cd $\sim$/react-\/popper}\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md679}{}\doxysubsubsection{install dependencies}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md679}
+{\ttfamily npm install} or {\ttfamily yarn}\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md680}{}\doxysubsubsection{run dev mode}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md680}
+{\ttfamily npm run demo\+:dev} or {\ttfamily yarn demo\+:dev}\hypertarget{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md681}{}\doxysubsubsection{open your browser and visit\+:}\label{md__c___users_zhart__one_drive__desktop_school_capstone_workspace_capstone_flight_risk_assesmentdd710f79abee496647b9ce1fcef0c476_autotoc_md681}
+{\ttfamily \href{http://localhost:1234/}{\texttt{ http\+://localhost\+:1234/}}} 
